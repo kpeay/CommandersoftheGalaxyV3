@@ -25,5 +25,14 @@ public class NPCAnimController : MonoBehaviour {
            npcAnim.SetBool("Running", true);
         }
 
+        if (NPCMove.NPC_Attacking == false)
+        {
+            npcAnim.SetBool("Attacking", false);
+        }
+        else
+        {
+            npcAnim.SetBool("Attacking", true);
+        }
+
     }
 }

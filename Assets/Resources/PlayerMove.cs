@@ -48,6 +48,7 @@ public class PlayerMove : TacticsMove {
             Move();
             playerMoving = true;
             NPCMove.NPCMoving = false;
+            NPCMove.NPC_Attacking = false;
             return;
         }
         else
@@ -57,6 +58,7 @@ public class PlayerMove : TacticsMove {
 
         if (attacking)
         {
+            playerAttacking = true;
             PlayerAttacksNPC(aiUnit);
             Debug.Log("Target unit; " + aiUnit);
         }
@@ -68,6 +70,7 @@ public class PlayerMove : TacticsMove {
     void CheckMouse()
     {
         NPCMove.NPCMoving = false;
+        NPCMove.NPC_Attacking = false;
 
         if (Input.GetMouseButtonUp(0))
         {

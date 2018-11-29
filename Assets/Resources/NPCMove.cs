@@ -46,11 +46,13 @@ public class NPCMove : TacticsMove
             Move();
             NPCMoving = true;
             PlayerMove.playerMoving = false;
+            PlayerMove.playerAttacking = false;
             return;
         }
 
         if (attacking)
         {
+            NPC_Attacking = true;
             NPCAttacksPlayer(playerUnit);
         }
 

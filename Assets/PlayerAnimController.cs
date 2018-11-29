@@ -24,5 +24,14 @@ public class PlayerAnimController : MonoBehaviour {
             playerAnim.SetBool("Running", true);
         }
 
+        if (PlayerMove.playerAttacking == false)
+        {
+            playerAnim.SetBool("Attacking", false);
+        }
+        else
+        {
+            playerAnim.SetBool("Attacking", true);
+        }
+
 	}
 }
