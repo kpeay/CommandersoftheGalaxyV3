@@ -98,7 +98,15 @@ public class PlayerMove : TacticsMove {
 
                     // Calculate the distance if it is less than range start moving
                     float npcDistance = Vector3.Distance(transform.position, target.transform.position);
-                    if (npcDistance < 5.0)
+
+                    if (npcDistance <= this.GetComponent<Unit>().GetRange())
+                    {
+                        willAttackAfterMove = true;
+                        playerAttacking = true;
+                        DontMove();
+
+                    }
+                    else if (npcDistance <= this.GetComponent<Unit>().GetMove() + this.GetComponent<Unit>().GetRange())
                     {
                         moving = true;
                         // Find next selectable tile from adjacency list aand move to it

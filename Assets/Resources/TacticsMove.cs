@@ -180,6 +180,13 @@ public class TacticsMove : MonoBehaviour
         }
     }
 
+    public void DontMove()
+    {
+        path.Clear();
+        startAttack = true;
+        attacking = true;
+    }
+
     public void Move()
     {
         //Debug.Log("-----Move entered-----------");
