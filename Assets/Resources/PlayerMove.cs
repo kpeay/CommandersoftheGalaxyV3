@@ -99,19 +99,17 @@ public class PlayerMove : TacticsMove {
                     // Calculate the distance if it is less than range start moving
                     float npcDistance = Vector3.Distance(transform.position, target.transform.position);
 
-                    if (npcDistance <= this.GetComponent<Unit>().GetRange())
+                    if (npcDistance < this.GetComponent<Unit>().GetRange()+1)
                     {
+                        moving = true;
                         willAttackAfterMove = true;
-                        playerAttacking = true;
                         DontMove();
-
                     }
                     else if (npcDistance <= this.GetComponent<Unit>().GetMove() + this.GetComponent<Unit>().GetRange())
                     {
                         moving = true;
                         // Find next selectable tile from adjacency list aand move to it
-                        willAttackAfterMove = true;
-                        playerAttacking = true;             // Set player attacking mode
+                        willAttackAfterMove = true;      // Set player attacking mode
                         MoveToSelectableNeighborTile(t);
                     }
 
@@ -129,10 +127,15 @@ public class PlayerMove : TacticsMove {
         //pc.SetStats(5, 5, 5, 5);
         
         int dmg = pc.AttackPhase(true, this.GetComponent<Unit>().GetAttack(), this.GetComponent<Unit>().GetDefense(), aiUnit.GetComponent<Unit>().GetAttack(), aiUnit.GetComponent<Unit>().GetDefense());
+        this.GetComponent<Unit>().TakeDmg(dmg);
         Debug.Log("Player hits for: " + dmg);
+        Debug.Log("Player has: " + this.GetComponent<Unit>().GetHealth());
+
         attacking = false;
         willAttackAfterMove = false;
-        TurnManager.EndTurn();
+        StartCoroutine(WaitTime(1.0f));
+        //Debug.Log("I done waited");
+        //TurnManager.EndTurn();
 
         /* attackCount++;      // Increase attack count for testing
          if (attackCount < 5)
@@ -148,6 +151,14 @@ public class PlayerMove : TacticsMove {
              attacking = false;
              TurnManager.EndTurn();
          }*/
+    }
+
+    IEnumerator WaitTime(float sec)
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(sec); //This Command doesn't get activated; why not?
+           // Time.timeScale = 0;
+        TurnManager.EndTurn(); //Supposedly it must be called from the CoRountinue what ever it is you want to happen
     }
 
 }

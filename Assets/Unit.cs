@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour {
     public int defense = 4;
     public int move = 5;
     public float range = 1f; //0.5 is equal to one tile away from unit
-    public int health = 10;
+    public int health = 1; //set back to 10 later
 
 	// Use this for initialization
 	void Start () {
@@ -93,7 +93,7 @@ public class Unit : MonoBehaviour {
         if(health < 1)
         {
             //destroy this instance of game object
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

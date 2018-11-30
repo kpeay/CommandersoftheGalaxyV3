@@ -15,23 +15,28 @@ public class PlayerAnimController : MonoBehaviour {
 	void Update ()
     {
 
-        if (PlayerMove.playerMoving == false)
-        {
-            playerAnim.SetBool("Running", false);
-        }
-        else
+        if (PlayerMove.playerMoving)
         {
             playerAnim.SetBool("Running", true);
         }
-
-        if (PlayerMove.playerAttacking == false)
-        {
-            playerAnim.SetBool("Attacking", false);
-        }
         else
+        {
+            playerAnim.SetBool("Running", false);
+        }
+
+        if (PlayerMove.playerAttacking)
         {
             playerAnim.SetBool("Attacking", true);
         }
+        else
+        {
+            playerAnim.SetBool("Attacking", false);
+        }
 
 	}
+
+    public void SetAttackingPlayer()
+    {
+        PlayerMove.playerAttacking = false;
+    }
 }

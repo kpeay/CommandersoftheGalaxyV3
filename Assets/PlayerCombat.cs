@@ -83,7 +83,7 @@ public class PlayerCombat : MonoBehaviour {
         }
         else
         {
-            return -1;
+            return 0;
         }
     }
 

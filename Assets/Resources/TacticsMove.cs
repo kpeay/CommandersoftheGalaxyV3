@@ -183,14 +183,26 @@ public class TacticsMove : MonoBehaviour
     public void DontMove()
     {
         path.Clear();
-        startAttack = true;
-        attacking = true;
+        RemoveSelectableTiles();
+        moving = false;
+
+        if (willAttackAfterMove)    // Will we attack enemy
+        {
+            // Set switch to start attack
+            startAttack = true;
+            attacking = true;
+            PlayerMove.playerAttacking = true;
+        }
+        else
+        {   // No attacking. Therefore, give up my turn.
+            TurnManager.EndTurn();
+        }
     }
 
     public void Move()
     {
         //Debug.Log("-----Move entered-----------");
-        //Debug.Log("path.Count " + path.Count);
+        //Debug.Log("fath.Count " + path.Count);
         if (path.Count > 0)
         {
             Tile t = path.Peek();
@@ -237,6 +249,7 @@ public class TacticsMove : MonoBehaviour
                 // Set switch to start attack
                 startAttack = true;
                 attacking = true;
+                PlayerMove.playerAttacking = true;
             }
             else
             {   // No attacking. Therefore, give up my turn.
@@ -479,6 +492,7 @@ public class TacticsMove : MonoBehaviour
 
     public void EndTurn()
     {
+
         turn = false;
         moving = false;
     }
