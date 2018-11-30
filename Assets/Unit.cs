@@ -7,8 +7,8 @@ public class Unit : MonoBehaviour {
     public int attack = 4;
     public int defense = 4;
     public int move = 5;
-    public float range = 1f; //0.5 is equal to one tile away from unit
-    public int health = 1; //set back to 10 later
+    public float range = 5f; //0.5 is equal to one tile away from unit
+    public int health = 10; //set back to 10 later
 
 	// Use this for initialization
 	void Start () {

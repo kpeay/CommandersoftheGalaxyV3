@@ -103,7 +103,7 @@ public class NPCMove : TacticsMove
         PlayerCombat pc = new PlayerCombat();
 
         int dmg = pc.AttackPhase(true, this.GetComponent<Unit>().GetAttack(), this.GetComponent<Unit>().GetDefense(), playerUnit.GetComponent<Unit>().GetAttack(), playerUnit.GetComponent<Unit>().GetDefense());
-        this.GetComponent<Unit>().TakeDmg(dmg);
+        playerUnit.GetComponent<Unit>().TakeDmg(dmg);
         Debug.Log("NPC hits for: " + dmg);
         Debug.Log("Player has: " + this.GetComponent<Unit>().GetHealth());
         attacking = false;

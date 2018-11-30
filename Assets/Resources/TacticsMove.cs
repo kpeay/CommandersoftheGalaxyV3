@@ -162,8 +162,29 @@ public class TacticsMove : MonoBehaviour
         }
     }
 
-    public void MoveToSelectableNeighborTile(Tile tile)
+    public void MoveToSelectableNeighborTile(Tile tile, float range)
     {
+        //on the case that range is greater than 1
+        if (range > 1)
+        {
+            //create a stack to hold all the tiles adjacent to tile up till the point that i >= range
+            Stack<Tile> tileInRange = new Stack<Tile>();
+
+            //store tile in the stack. This should be the location that the targeted enemy is standing on.
+            tileInRange.Push(tile);
+
+            //find tiles adjacent to origin tile. then find tiles adjacent to those tiles. continue this process until the distance from the last tile in the stack is = range
+            for(int i = 0; i < range; i++)
+            {
+                
+                foreach (Tile t in tile.adjacencyList)
+                {
+                    
+                }
+            }
+            
+        }
+
         // Find next selectable empty neighbor tile
         foreach(Tile t in tile.adjacencyList)
         {
@@ -431,7 +452,6 @@ public class TacticsMove : MonoBehaviour
 
         openList.Add(currentTile);
         //currentTile.parent = ??
-        currentTile.h = Vector3.Distance(currentTile.transform.position, target.transform.position);
         currentTile.f = currentTile.h;
 
         while (openList.Count > 0)

@@ -3282,7 +3282,7 @@ GameObject:
   - component: {fileID: 88760614}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10765,7 +10765,7 @@ GameObject:
   - component: {fileID: 331703591}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34734,7 +34734,7 @@ GameObject:
   - component: {fileID: 1167737167}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45042,7 +45042,7 @@ GameObject:
   - component: {fileID: 1404076887}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53016,7 +53016,7 @@ GameObject:
   - component: {fileID: 1637809829}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60027,7 +60027,7 @@ GameObject:
   - component: {fileID: 1854750421}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61853,7 +61853,7 @@ Prefab:
     - target: {fileID: 114184174332105860, guid: 44d5b208ed9f9264c84114be298142a3,
         type: 2}
       propertyPath: range
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114206619365727788, guid: 44d5b208ed9f9264c84114be298142a3,
         type: 2}
@@ -61868,6 +61868,11 @@ Prefab:
         type: 2}
       propertyPath: health
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114822258059827150, guid: 44d5b208ed9f9264c84114be298142a3,
+        type: 2}
+      propertyPath: move
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44d5b208ed9f9264c84114be298142a3, type: 2}

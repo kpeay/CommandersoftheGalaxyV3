@@ -72,7 +72,14 @@ public class PlayerMove : TacticsMove {
         NPCMove.NPCMoving = false;
         NPCMove.NPC_Attacking = false;
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyDown("space"))
+        {
+            Debug.Log("Space was pressed");
+            DontMove();
+                
+
+        }
+        else if (Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -110,7 +117,7 @@ public class PlayerMove : TacticsMove {
                         moving = true;
                         // Find next selectable tile from adjacency list aand move to it
                         willAttackAfterMove = true;      // Set player attacking mode
-                        MoveToSelectableNeighborTile(t);
+                        MoveToSelectableNeighborTile(t, this.GetComponent<Unit>().GetRange());
                     }
 
                 }
@@ -127,7 +134,7 @@ public class PlayerMove : TacticsMove {
         //pc.SetStats(5, 5, 5, 5);
         
         int dmg = pc.AttackPhase(true, this.GetComponent<Unit>().GetAttack(), this.GetComponent<Unit>().GetDefense(), aiUnit.GetComponent<Unit>().GetAttack(), aiUnit.GetComponent<Unit>().GetDefense());
-        this.GetComponent<Unit>().TakeDmg(dmg);
+        aiUnit.GetComponent<Unit>().TakeDmg(dmg);
         Debug.Log("Player hits for: " + dmg);
         Debug.Log("Player has: " + this.GetComponent<Unit>().GetHealth());
 
