@@ -117,7 +117,7 @@ public class PlayerMove : TacticsMove {
                         moving = true;
                         // Find next selectable tile from adjacency list aand move to it
                         willAttackAfterMove = true;      // Set player attacking mode
-                        MoveToSelectableNeighborTile(t, this.GetComponent<Unit>().GetRange());
+                        MoveToSelectableNeighborTile(t, this.GetComponent<Unit>().GetRange(), this.gameObject);
                     }
 
                 }

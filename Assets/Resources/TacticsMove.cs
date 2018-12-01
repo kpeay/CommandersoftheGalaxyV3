@@ -162,40 +162,83 @@ public class TacticsMove : MonoBehaviour
         }
     }
 
-    public void MoveToSelectableNeighborTile(Tile tile, float range)
+    public void MoveToSelectableNeighborTile(Tile tile, float range, GameObject unit)
     {
+        Debug.Log("Range is: " + range);
         //on the case that range is greater than 1
         if (range > 1)
         {
             //create a stack to hold all the tiles adjacent to tile up till the point that i >= range
-            Stack<Tile> tileInRange = new Stack<Tile>();
+            List<Tile> tileInRange = new List<Tile>();
 
-            //store tile in the stack. This should be the location that the targeted enemy is standing on.
-            tileInRange.Push(tile);
+            //create a queue that is used to store tiles that need to be used to find adjacent tiles
+            Queue<Tile> tileQueue = new Queue<Tile>();
+
+            List<Tile> selectableT = new List<Tile>();
+
+            //store tile in the queue and stack. This should be the location that the targeted enemy is standing on.
+            tileQueue.Enqueue(tile);
 
             //find tiles adjacent to origin tile. then find tiles adjacent to those tiles. continue this process until the distance from the last tile in the stack is = range
-            for(int i = 0; i < range; i++)
+            for (int i = 0; i < range * 100; i++)
             {
-                
+                //take the next tile in the queue and set it at the tile
+                tile = tileQueue.Dequeue();
+
+                //store the tiles adjacent to tile into the queue and stack
                 foreach (Tile t in tile.adjacencyList)
                 {
-                    
+                    tileInRange.Add(t);
+                    tileQueue.Enqueue(t);
+                }
+                Debug.Log("Times searched through tiles: " + (i + 1));
+            }
+
+
+            foreach(Tile target in tileInRange)
+            {
+                RaycastHit hit;
+
+                if (!Physics.Raycast(target.transform.position, Vector3.up, out hit, 1))
+                {
+                    //find the first selectable tile in the stack and move to it
+                    if (target.selectable)
+                    {
+                        selectableT.Add(target);
+                       // MoveToTile(target);
+                    }
+
                 }
             }
-            
-        }
 
-        // Find next selectable empty neighbor tile
-        foreach(Tile t in tile.adjacencyList)
-        {
-            RaycastHit hit;
+            Tile destination = tile; 
 
-            if (!Physics.Raycast(t.transform.position, Vector3.up, out hit, 1))
-            {   
-                if (t.selectable)
+            foreach(Tile t in selectableT)
+            {
+                //find the tile closest to the unit's current location
+                if(Vector3.Distance(t.transform.position, unit.transform.position) < Vector3.Distance(destination.transform.position, unit.transform.position))
                 {
-                    MoveToTile(t);
-                    return;
+                    destination = t;
+                }
+            }
+
+            //move to tile. should be the furthest possible tile away from the enemy while still being in range
+            MoveToTile(destination); 
+
+        }
+        else{
+            // Find next selectable empty neighbor tile
+            foreach (Tile t in tile.adjacencyList)
+            {
+                RaycastHit hit;
+
+                if (!Physics.Raycast(t.transform.position, Vector3.up, out hit, 1))
+                {
+                    if (t.selectable)
+                    {
+                        MoveToTile(t);
+                        return;
+                    }
                 }
             }
         }
