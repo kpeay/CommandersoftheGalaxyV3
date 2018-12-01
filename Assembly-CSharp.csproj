@@ -65,6 +65,7 @@
      <Compile Include="Assets\Resources\TacticsMove.cs" />
      <Compile Include="Assets\Resources\Tile.cs" />
      <Compile Include="Assets\Resources\TurnManager.cs" />
+     <Compile Include="Assets\StartPanel\HeroTypes.cs" />
      <Compile Include="Assets\StartPanel\MainMenu.cs" />
      <Compile Include="Assets\StartPanel\OptionsMenu.cs" />
      <Compile Include="Assets\StartPanel\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
