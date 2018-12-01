@@ -72,12 +72,21 @@ public class PlayerMove : TacticsMove {
         NPCMove.NPCMoving = false;
         NPCMove.NPC_Attacking = false;
 
+        bool skipUnit = false; 
         if (Input.GetKeyDown("space"))
         {
+            StartCoroutine(WaitTime(1.0f));
             Debug.Log("Space was pressed");
-            DontMove();
-                
+            skipUnit = true;
+            Debug.Log("Skip unit set to true");
+        }
 
+        if (skipUnit)
+        {
+            StartCoroutine(WaitTime(1.0f));
+            skipUnit = false;
+            Debug.Log("Skip unit set to false");
+            DontMove();
         }
         else if (Input.GetMouseButtonUp(0))
         {
