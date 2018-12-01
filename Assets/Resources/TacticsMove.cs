@@ -533,7 +533,7 @@ public class TacticsMove : MonoBehaviour
                     tile.parent = t;
 
                     tile.g = t.g + Vector3.Distance(tile.transform.position, t.transform.position);
-                    tile.h = Vector3.Distance(tile.transform.position, target.transform.position);
+
                     tile.f = tile.g + tile.h;
 
                     openList.Add(tile);
