@@ -9,6 +9,7 @@ public class PlayerMove : TacticsMove {
     GameObject playerUnit;
     public static bool playerMoving = false;
     public static bool playerAttacking = false;
+    public static bool skipUnit = false;
 
     private static int attackCount = 0;
 
@@ -62,6 +63,12 @@ public class PlayerMove : TacticsMove {
             PlayerAttacksNPC(aiUnit);
             Debug.Log("Target unit; " + aiUnit);
         }
+
+        if (skipUnit)
+        {
+            skipUnit = false;
+            DontMove();
+        }
     }
 
 
@@ -72,21 +79,11 @@ public class PlayerMove : TacticsMove {
         NPCMove.NPCMoving = false;
         NPCMove.NPC_Attacking = false;
 
-        bool skipUnit = false; 
+        bool skipUnit = false;
         if (Input.GetKeyDown("space"))
         {
-            StartCoroutine(WaitTime(1.0f));
-            Debug.Log("Space was pressed");
+            StartCoroutine(WaitTime(0.3f));
             skipUnit = true;
-            Debug.Log("Skip unit set to true");
-        }
-
-        if (skipUnit)
-        {
-            StartCoroutine(WaitTime(1.0f));
-            skipUnit = false;
-            Debug.Log("Skip unit set to false");
-            DontMove();
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -106,7 +103,7 @@ public class PlayerMove : TacticsMove {
                         MoveToTile(t);
                     }
                 }
-                else if(hit.collider.tag == "NPC")
+                else if (hit.collider.tag == "NPC")
                 {   // Will attack NPC pointed by mouse click. 
                     Tile t = GetTargetTile(hit.collider.gameObject);
                     target = hit.collider.gameObject;
@@ -115,7 +112,7 @@ public class PlayerMove : TacticsMove {
                     // Calculate the distance if it is less than range start moving
                     float npcDistance = Vector3.Distance(transform.position, target.transform.position);
 
-                    if (npcDistance < this.GetComponent<Unit>().GetRange()+1)
+                    if (npcDistance < this.GetComponent<Unit>().GetRange() + 1)
                     {
                         moving = true;
                         willAttackAfterMove = true;
