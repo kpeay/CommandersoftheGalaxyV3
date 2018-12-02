@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 684126559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac86b62bd62dd048bd27eceafba4b17, type: 3}
+  m_Script: {fileID: 11500000, guid: d9a8eee27b6d8df47934e460a9f7323d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &684126562
@@ -713,10 +713,10 @@ RectTransform:
   m_Father: {fileID: 684126560}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.7000122, y: -125.5}
-  m_SizeDelta: {x: -578.7, y: -368.7}
+  m_AnchorMin: {x: 0.014368422, y: 0.096}
+  m_AnchorMax: {x: 0.98684216, y: 0.28880578}
+  m_AnchoredPosition: {x: -0.020874023, y: 0.03215027}
+  m_SizeDelta: {x: -485.27, y: -62.337}
   m_Pivot: {x: 0.52076226, y: 0.5}
 --- !u!114 &1683061624
 MonoBehaviour:
@@ -758,7 +758,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 684126561}
-        m_MethodName: BackToMainMenuButtonClicked
+        m_MethodName: BackButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

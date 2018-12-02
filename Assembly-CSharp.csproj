@@ -67,6 +67,7 @@
      <Compile Include="Assets\Resources\TacticsMove.cs" />
      <Compile Include="Assets\Resources\Tile.cs" />
      <Compile Include="Assets\Resources\TurnManager.cs" />
+     <Compile Include="Assets\Resources\WinScene.cs" />
      <Compile Include="Assets\StartPanel\HeroTypes.cs" />
      <Compile Include="Assets\StartPanel\MainMenu.cs" />
      <Compile Include="Assets\StartPanel\OptionsMenu.cs" />
