@@ -92,6 +92,9 @@ public class Unit : MonoBehaviour {
         //if health is less than 1 the unit is killed
         if(health < 1)
         {
+            // Remove this object from Turn Manager data structures
+            TurnManager.RemoveUnit(this.gameObject);
+
             //destroy this instance of game object
             Destroy(this.gameObject);
         }

@@ -35,7 +35,7 @@ public class NPCMove : TacticsMove
             FindNearestTarget();    // Find nearest target "Player"
             CalculatePath();        // Calculate A* path to nearest Player
             FindSelectableTiles(gameObject);  // Shows all potential target tile moves
-            actualTargetTile.target = true;
+            //actualTargetTile.target = true;
             newUnitTurn = false;
             moving = true;
             return;
@@ -64,6 +64,8 @@ public class NPCMove : TacticsMove
         FindPath(targetTile);   // Perform A* search
     }
 
+    // This module looks for player objects. If there is a player within my range
+    // than npc attack mode is set. Otherwise, npc will move toward closest player.
     void FindNearestTarget()
     {   // Player objects are enemies for NPC. Therefore,
         // create an array of targets with Player tags. 
@@ -72,29 +74,45 @@ public class NPCMove : TacticsMove
         // Simplest AI. Look for nearest player unit. Therefore, 
         // distance will be used to find an attackable player
         GameObject nearest = null;
+        GameObject smallestHealthObj = null;
         float distance = Mathf.Infinity;
+        int smallestHealth = 1000;
+        int myHealth = this.GetComponent<Unit>().GetHealth();
+        float myRange = this.GetComponent<Unit>().GetRange();
 
         foreach (GameObject obj in targets)
         {
             float d = Vector3.Distance(transform.position, obj.transform.position);
+            int objHealth = obj.GetComponent<Unit>().GetHealth();
 
             if (d < distance)
             {
                 distance = d;
                 nearest = obj;
             }
+
+            if (objHealth < smallestHealth && d < myRange)
+            {   // Found a Player within NPC reach
+                smallestHealth = objHealth;
+                smallestHealthObj = obj;
+            }
+
         }
 
+        // Set nearest player as target
         playerUnit = nearest;
         target = nearest;
 
-        //Debug.Log("NPC distance to player " + distance);
-        if (distance < 5.0)
-        {
+        if (smallestHealthObj != null)
+        {   // There is a player within my range.
+            // Set it as target to attack.
+            playerUnit = smallestHealthObj;
+            target = smallestHealthObj;
             //Debug.Log("Set Player Tile attackable----");
             willAttackAfterMove = true;
             NPC_WillAttack = true;
         }
+
     }
 
     void NPCAttacksPlayer(GameObject target)

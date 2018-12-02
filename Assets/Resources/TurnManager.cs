@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    // Add unit to Turn Manager data structures
     public static void AddUnit(TacticsMove unit)
     {
         List<TacticsMove> list;
@@ -82,5 +84,27 @@ public class TurnManager : MonoBehaviour
         }
 
         list.Add(unit);
+    }
+
+    public static void RemoveUnit(GameObject unit)
+    {
+        string teamTag = unit.tag;
+        List<TacticsMove> teamList = units[teamTag];
+
+        TacticsMove abc = unit.GetComponentInParent<TacticsMove>();
+        teamList.Remove(abc);
+        units[teamTag] = teamList;
+
+        if (teamList.Count < 1)
+        {
+            if (teamTag == "Player")
+            {   // Player lost the game
+                SceneManager.LoadScene("GameOverScene");
+            }
+            else
+            {   // Player Win the Game
+                SceneManager.LoadScene("WinScene");
+            }
+        }
     }
 }
