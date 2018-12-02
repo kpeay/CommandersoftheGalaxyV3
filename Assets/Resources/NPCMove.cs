@@ -10,7 +10,7 @@ public class NPCMove : TacticsMove
     public static bool NPC_Attacking = false;
     public static bool NPC_WillAttack = false;
 
-    List<Tile> selectableTiles;   
+    List<Tile> selectedTiles;   
 
     private static int attackCount = 0;
 
@@ -33,10 +33,10 @@ public class NPCMove : TacticsMove
         if (newUnitTurn)
         {   // Just got turn. Find path and start moving
             NPCMoving = false;
-            selectableTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
+            selectedTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             FindNearestTarget();    // Find nearest target "Player"
             CalculatePath();        // Calculate A* path to nearest Player
-            selectableTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
+            selectedTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             newUnitTurn = false;
             moving = true;
             return;
@@ -126,7 +126,7 @@ public class NPCMove : TacticsMove
     {
         float distance = Mathf.Infinity;
         // Find the closest selectable tile to nearest player
-        foreach (Tile t in selectableTiles)
+        foreach (Tile t in selectedTiles)
         {
             float d = Vector3.Distance(t.transform.position, nearestPlayer.transform.position);
 
