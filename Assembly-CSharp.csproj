@@ -116,6 +116,7 @@
     <None Include="Assets\StartPanel\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\StartPanel\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\StartPanel\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Luminaris Starship\Documentation\Readme Luminaris.txt" />
     <None Include="Assets\StartPanel\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\StartPanel\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\StartPanel\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
