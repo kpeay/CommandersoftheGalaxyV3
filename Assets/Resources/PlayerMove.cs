@@ -23,8 +23,8 @@ public class PlayerMove : TacticsMove {
     }
 
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         Debug.DrawRay(transform.position, transform.forward);
 
@@ -69,8 +69,9 @@ public class PlayerMove : TacticsMove {
             skipUnit = false;
             DontMove();
         }
-    }
 
+
+    }
 
     // Check whether left mouse clicked. Here, if mouse click is on an enemy unit
     // in a reachable target, set playerAttacking flag.

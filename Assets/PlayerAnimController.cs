@@ -8,7 +8,7 @@ public class PlayerAnimController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        playerAnim = GetComponent <Animator>();
+        playerAnim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -30,7 +30,7 @@ public class PlayerAnimController : MonoBehaviour {
         }
         else
         {
-            playerAnim.SetBool("Attacking", false);
+           playerAnim.SetBool("Attacking", false);
         }
 
 	}
