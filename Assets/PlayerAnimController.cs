@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimController : MonoBehaviour {
 
-    static Animator playerAnim;
+    private Animator playerAnim;
 
 	// Use this for initialization
 	void Start () {
-        playerAnim = GetComponent<Animator>();
+        this.playerAnim = this.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame

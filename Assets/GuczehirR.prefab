@@ -101,6 +101,7 @@ MonoBehaviour:
   defense: 4
   move: 5
   range: 5
+  health: 10
 --- !u!114 &114831615994359104
 MonoBehaviour:
   m_ObjectHideFlags: 1
