@@ -9,7 +9,8 @@ public class NPCMove : TacticsMove
     public static bool NPCMoving = false;
     public static bool NPC_Attacking = false;
     public static bool NPC_WillAttack = false;
-    
+
+    List<Tile> selectableTiles;   
 
     private static int attackCount = 0;
 
@@ -32,10 +33,10 @@ public class NPCMove : TacticsMove
         if (newUnitTurn)
         {   // Just got turn. Find path and start moving
             NPCMoving = false;
+            selectableTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             FindNearestTarget();    // Find nearest target "Player"
             CalculatePath();        // Calculate A* path to nearest Player
-            FindSelectableTiles(gameObject);  // Shows all potential target tile moves
-            //actualTargetTile.target = true;
+            selectableTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             newUnitTurn = false;
             moving = true;
             return;
@@ -60,8 +61,8 @@ public class NPCMove : TacticsMove
 
     void CalculatePath()
     {
-        Tile targetTile = GetTargetTile(target);
-        FindPath(targetTile);   // Perform A* search
+        //Tile targetTile = GetTargetTile(target);
+        FindPath(actualTargetTile);   // Perform A* search
     }
 
     // This module looks for player objects. If there is a player within my range
@@ -99,11 +100,16 @@ public class NPCMove : TacticsMove
 
         }
 
-        // Set nearest player as target
-        playerUnit = nearest;
-        target = nearest;
+        
 
-        if (smallestHealthObj != null)
+        if (smallestHealthObj == null)
+        {
+            // Set nearest player as target
+            playerUnit = nearest;
+            target = nearest;
+            FindOffRangeTargetTile(target);
+        }
+        else
         {   // There is a player within my range.
             // Set it as target to attack.
             playerUnit = smallestHealthObj;
@@ -111,8 +117,46 @@ public class NPCMove : TacticsMove
             //Debug.Log("Set Player Tile attackable----");
             willAttackAfterMove = true;
             NPC_WillAttack = true;
+            FindInRangeTargetTile(target);
         }
 
+    }
+
+    void FindOffRangeTargetTile(GameObject nearestPlayer)
+    {
+        float distance = Mathf.Infinity;
+        // Find the closest selectable tile to nearest player
+        foreach (Tile t in selectableTiles)
+        {
+            float d = Vector3.Distance(t.transform.position, nearestPlayer.transform.position);
+
+            if (d < distance)
+            {
+                distance = d;
+                actualTargetTile = t;
+            }
+        }
+        actualTargetTile.target = true;
+    }
+
+    void FindInRangeTargetTile(GameObject nearestPlayer)
+    {
+        float distance = Mathf.Infinity;
+        Tile playerTile = GetTargetTile(nearestPlayer);
+        // Find the closest adjacent selectable tile to attackable player
+        foreach (Tile t in playerTile.adjacencyList)
+        {
+            if (!t.selectable) continue;
+
+            float d = Vector3.Distance(t.transform.position, playerTile.transform.position);
+
+            if (d < distance)
+            {
+                distance = d;
+                actualTargetTile = t;
+            }
+        }
+        actualTargetTile.target = true;
     }
 
     void NPCAttacksPlayer(GameObject target)

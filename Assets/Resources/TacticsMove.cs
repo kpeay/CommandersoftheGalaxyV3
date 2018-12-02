@@ -80,7 +80,7 @@ public class TacticsMove : MonoBehaviour
         }
     }
 
-    public void FindSelectableTiles(GameObject unit)
+    public List<Tile> FindSelectableTiles(GameObject unit)
     {
         string unitTag = unit.tag;
         ComputeAdjacencyLists(jumpHeight, null);
@@ -112,6 +112,7 @@ public class TacticsMove : MonoBehaviour
                 }
             }
         }
+        return selectableTiles;
     }
 
     public void FindEnemies()

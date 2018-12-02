@@ -11,6 +11,8 @@ public class PlayerMove : TacticsMove {
     public static bool playerAttacking = false;
     public static bool skipUnit = false;
 
+    List<Tile> selectableTiles;
+
     private static int attackCount = 0;
 
     // Use this for initialization
@@ -35,7 +37,7 @@ public class PlayerMove : TacticsMove {
 
         if (newUnitTurn)
         {   // Just got turn. Find path and start moving
-            FindSelectableTiles(gameObject);
+            selectableTiles = FindSelectableTiles(gameObject);
             CheckMouse();
             playerMoving = false;
             newUnitTurn = false;
