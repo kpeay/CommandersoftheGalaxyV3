@@ -89,11 +89,24 @@ public class TurnManager : MonoBehaviour
     public static void RemoveUnit(GameObject unit)
     {
         string teamTag = unit.tag;
+        Debug.Log("***RemoveUnit Team " + teamTag + " Unit " + unit.name);
+
         List<TacticsMove> teamList = units[teamTag];
+        Debug.Log("***Team " + teamTag + " Members BEFORE removing unit ");
+        foreach (TacticsMove mem in teamList)
+        {
+            Debug.Log("***Team " + teamTag + " Unit " + mem.name);
+        }
 
         TacticsMove abc = unit.GetComponentInParent<TacticsMove>();
         teamList.Remove(abc);
         units[teamTag] = teamList;
+        Debug.Log("***Team " + teamTag + " Members AFTER removing unit ");
+        foreach (TacticsMove mem in teamList)
+        {
+            Debug.Log("***Team " + teamTag + " Unit " + mem.name);
+        }
+
 
         if (teamList.Count < 1)
         {

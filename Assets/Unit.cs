@@ -94,7 +94,7 @@ public class Unit : MonoBehaviour {
         {
             // Remove this object from Turn Manager data structures
             TurnManager.RemoveUnit(this.gameObject);
-
+            Debug.Log("===>Unit Died " + this.gameObject.name);
             //destroy this instance of game object
             Destroy(this.gameObject);
         }
