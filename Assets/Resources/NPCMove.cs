@@ -40,7 +40,7 @@ public class NPCMove : TacticsMove
         if (newUnitTurn)
         {   // Just got turn. Find path and start moving
             NPCMoving = false;
-            animateMove = false;
+            //animateMove = false;
             selectedTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             FindNearestTarget();    // Find nearest target "Player"
             CalculatePath();        // Calculate A* path to nearest Player
@@ -62,6 +62,7 @@ public class NPCMove : TacticsMove
 
         if (attacking)
         {
+            //animateMove = false;
             NPC_Attacking = true;
             NPCAttacksPlayer(playerUnit);
         }
@@ -198,5 +199,10 @@ public class NPCMove : TacticsMove
         //attacking = false;
         //TurnManager.EndTurn();
         //}
+    }
+
+    public void SetAnimateAttack()
+    {
+        animateAttack = false;
     }
 }

@@ -55,8 +55,8 @@ public class PlayerMove : TacticsMove {
             animateMove = true;
             Move(this.gameObject);
             playerMoving = true;
-            NPCMove.NPCMoving = false;
-            NPCMove.NPC_Attacking = false;
+           // NPCMove.NPCMoving = false;
+           // NPCMove.NPC_Attacking = false;
             return;
         }
         else
@@ -88,7 +88,6 @@ public class PlayerMove : TacticsMove {
     {
         NPCMove.NPCMoving = false;
         NPCMove.NPC_Attacking = false;
-        
 
         bool skipUnit = false;
         if (Input.GetKeyDown("space"))
@@ -111,6 +110,7 @@ public class PlayerMove : TacticsMove {
                     if (t.selectable)
                     {
                         moving = true;
+                        Debug.Log("PlayerMove() t:" + t);
                         MoveToTile(t);
                     }
                 }
@@ -157,6 +157,7 @@ public class PlayerMove : TacticsMove {
 
         attacking = false;
         willAttackAfterMove = false;
+      
         StartCoroutine(WaitTime(1.0f));
         //Debug.Log("I done waited");
         //TurnManager.EndTurn();
@@ -181,7 +182,8 @@ public class PlayerMove : TacticsMove {
     {
         print(Time.time);
         yield return new WaitForSeconds(sec); //This Command doesn't get activated; why not?
-           // Time.timeScale = 0;
+                                              // Time.timeScale = 0;
+        animateAttack = false;
         TurnManager.EndTurn(); //Supposedly it must be called from the CoRountinue what ever it is you want to happen
     }
 

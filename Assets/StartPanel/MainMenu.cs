@@ -12,7 +12,9 @@ public class MainMenu : MonoBehaviour {
 
     // Stop Game playing
     public void QuitButtonClicked () {
-        Debug.Log("Application Quit Button Clicked");
-        Application.Quit();
+
+            Debug.Log("Application Quit Button Clicked");
+            Application.Quit();
+        
 	}
 }

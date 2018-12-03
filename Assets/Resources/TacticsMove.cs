@@ -51,8 +51,10 @@ public class TacticsMove : MonoBehaviour
     // This will be the starting point for path finding.
     public void GetCurrentTile()
     {
+        Debug.Log("Game Object: " + gameObject);
         currentTile = GetTargetTile(gameObject);
-        currentTile.current = true;
+        Debug.Log("Current Tile:" + currentTile);
+
     }
 
     // Gets the Tile of game object named target
@@ -60,14 +62,16 @@ public class TacticsMove : MonoBehaviour
     {
         RaycastHit hit;
         Tile tile = null;
-        
 
-
-        if (Physics.Raycast(target.transform.position, -Vector3.up, out hit, 1))
+        Debug.Log("transform.position:" + target.transform.position);
+        Debug.DrawRay(transform.position, -Vector3.up, Color.magenta);
+        if (Physics.Raycast(target.transform.position, -Vector3.up, out hit, 1000))
         {
+            Debug.Log("Raycast Hit");
+
          tile = hit.collider.GetComponent<Tile>();
         }
-
+        Debug.Log("GetTargetTile() return:" + tile);
             return tile;
     }
 
@@ -154,6 +158,7 @@ public class TacticsMove : MonoBehaviour
     public void MoveToTile(Tile tile)
     {
         path.Clear();
+        Debug.Log("Tile in MoveToTile():" + tile);
         tile.target = true;
         moving = true;
 
@@ -208,6 +213,11 @@ public class TacticsMove : MonoBehaviour
                     if (target.selectable)
                     {
                         selectableT.Add(target);
+                        if (unit.tag == "NPC")
+                        {
+                            Debug.Log("unit.Tag = 'NPC' Target: " + target);
+                            MoveToTile(target);
+                        }
                        // MoveToTile(target);
                     }
 
@@ -215,6 +225,7 @@ public class TacticsMove : MonoBehaviour
             }
 
             Tile destination = tile; 
+            
 
             foreach(Tile t in selectableT)
             {
@@ -224,7 +235,7 @@ public class TacticsMove : MonoBehaviour
                     destination = t;
                 }
             }
-
+            Debug.Log("Destination:" + destination);
             //move to tile. should be the furthest possible tile away from the enemy while still being in range
             MoveToTile(destination); 
 
@@ -239,6 +250,7 @@ public class TacticsMove : MonoBehaviour
                 {
                     if (t.selectable)
                     {
+                        Debug.Log("t:" + t);
                         MoveToTile(t);
                         return;
                     }
@@ -270,6 +282,11 @@ public class TacticsMove : MonoBehaviour
     {
         //Debug.Log("-----Move entered-----------");
         //Debug.Log("fath.Count " + path.Count);
+        if(objectRef.tag == "NPC")
+        {
+            //objectRef.GetComponent<NPCMove>().animateMove = true;
+        }
+
         if (path.Count > 0)
         {
             Tile t = path.Peek();
@@ -313,10 +330,10 @@ public class TacticsMove : MonoBehaviour
             // Movement to target tile ended.
             if (willAttackAfterMove)    // Will we attack enemy
             {
-                if (objectRef.tag == "Payer")
+                if (objectRef.tag == "Player")
                     objectRef.GetComponent<PlayerMove>().animateMove = false;
                 if (objectRef.tag == "NPC")
-                    objectRef.GetComponent<NPCMove>().animateMove = false;
+                    //objectRef.GetComponent<NPCMove>().animateMove = false;
                 // Set switch to start attack
                 startAttack = true;
                 attacking = true;
@@ -330,7 +347,7 @@ public class TacticsMove : MonoBehaviour
 
                 if (objectRef.tag == "NPC")
                 {
-                    objectRef.GetComponent<NPCMove>().animateMove = false;
+                    //objectRef.GetComponent<NPCMove>().animateMove = false;
                 }
                 TurnManager.EndTurn();
             }
