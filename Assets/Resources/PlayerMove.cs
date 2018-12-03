@@ -7,6 +7,8 @@ public class PlayerMove : TacticsMove {
     GameObject target;
     GameObject aiUnit;
     GameObject playerUnit;
+    public bool animateMove = false;
+    public bool animateAttack = false;
     public static bool playerMoving = false;
     public static bool playerAttacking = false;
     public static bool skipUnit = false;
@@ -40,6 +42,7 @@ public class PlayerMove : TacticsMove {
             selectedTiles = FindSelectableTiles(gameObject);
             CheckMouse();
             playerMoving = false;
+            animateMove = false;
             newUnitTurn = false;
             moving = false;
             NPCMove.NPCMoving = false;
@@ -50,6 +53,7 @@ public class PlayerMove : TacticsMove {
         {   // Continue moving to target tile
             Move();
             playerMoving = true;
+            animateMove = true;
             NPCMove.NPCMoving = false;
             NPCMove.NPC_Attacking = false;
             return;
@@ -62,6 +66,7 @@ public class PlayerMove : TacticsMove {
         if (attacking)
         {
             playerAttacking = true;
+            animateAttack = true;
             PlayerAttacksNPC(aiUnit);
             Debug.Log("Target unit; " + aiUnit);
         }

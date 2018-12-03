@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - barrel: {fileID: 4898458119993624, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 2}
+  - obstacle: {fileID: 1924217154915476, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -4,33 +4,40 @@ using UnityEngine;
 
 public class PlayerAnimController : MonoBehaviour {
 
-    private Animator playerAnim;
+    Animator playerAnim;
+    PlayerMove pm = new PlayerMove();
 
-	// Use this for initialization
-	void Start () {
-        this.playerAnim = this.GetComponent<Animator>();
+    // Use this for initialization
+    void Start () {
+        playerAnim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        bool letsMove = pm.animateMove;
+        bool letsAttack = pm.animateAttack;
 
-        if (PlayerMove.playerMoving)
+        if (letsMove)
         {
             playerAnim.SetBool("Running", true);
+            Debug.Log(letsMove);
         }
         else
         {
             playerAnim.SetBool("Running", false);
+            Debug.Log(letsMove);
         }
 
-        if (PlayerMove.playerAttacking)
+        if (letsAttack)
         {
             playerAnim.SetBool("Attacking", true);
+            Debug.Log(letsAttack);
         }
         else
         {
            playerAnim.SetBool("Attacking", false);
+            Debug.Log(letsAttack);
         }
 
 	}

@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class RandomTerrain : MonoBehaviour
 {
-    public Transform barrel;
-    GameObject[] spawnPoints;
-    GameObject currentPoint;
-    int index;
+    public GameObject[] spawnPoints;
+    public GameObject spawnPoint;
+    public Transform obstacle;
 
     void Start()
     {
-
-        //Instantiate(barrel, new Vector3(2, 0, 0), Quaternion.identity);
-        
-        for (int i = 0; i < 10; i++)
-        {
+        if (spawnPoints == null)
             spawnPoints = GameObject.FindGameObjectsWithTag("Tile");
-            index = Random.Range(0, spawnPoints.Length);
-            currentPoint = spawnPoints[index];
 
-            Instantiate(barrel, currentPoint.transform.position, Quaternion.identity);
+        foreach (GameObject spawnPoint in spawnPoints)
+        {
+            Instantiate(obstacle, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
-        
     }
+    
+    
 
 }

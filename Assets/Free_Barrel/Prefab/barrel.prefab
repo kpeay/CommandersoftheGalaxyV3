@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4898458119993624}
   - component: {fileID: 33424522025894000}
   - component: {fileID: 23089995499348204}
+  - component: {fileID: 114038707066349582}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924217154915476}
   m_Mesh: {fileID: 4300000, guid: 1768e940ef5fa2d4093cb81fb56533a0, type: 3}
+--- !u!114 &114038707066349582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924217154915476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd735ab3ffd3e644189eef8cc0bba787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  spawnPoint: {fileID: 0}
+  obstacle: {fileID: 4898458119993624}
