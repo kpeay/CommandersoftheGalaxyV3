@@ -51,15 +51,17 @@ public class PlayerMove : TacticsMove {
 
         if (moving)
         {   // Continue moving to target tile
-            Move();
-            playerMoving = true;
+            //GR1Anim.letsMove = true;
             animateMove = true;
+            Move(this.gameObject);
+            playerMoving = true;
             NPCMove.NPCMoving = false;
             NPCMove.NPC_Attacking = false;
             return;
         }
         else
         {
+            //animateMove = false;
             CheckMouse();
         }
 
@@ -86,6 +88,7 @@ public class PlayerMove : TacticsMove {
     {
         NPCMove.NPCMoving = false;
         NPCMove.NPC_Attacking = false;
+        
 
         bool skipUnit = false;
         if (Input.GetKeyDown("space"))

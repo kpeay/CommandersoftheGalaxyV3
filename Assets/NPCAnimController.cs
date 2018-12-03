@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCAnimController : MonoBehaviour {
 
-    static Animator npcAnim;
+    Animator npcAnim;
 
     // Use this for initialization
     void Start()
@@ -16,22 +16,22 @@ public class NPCAnimController : MonoBehaviour {
     void Update()
     {
 
-        if (NPCMove.NPCMoving == false)
+        if (transform.parent.gameObject.GetComponent<NPCMove>().animateMove)
+        {
+            npcAnim.SetBool("Running", true);
+        }
+        else
         {
             npcAnim.SetBool("Running", false);
         }
-        else
-        {
-           npcAnim.SetBool("Running", true);
-        }
 
-        if (NPCMove.NPC_Attacking == false)
-        {
-            npcAnim.SetBool("Attacking", false);
-        }
-        else
+        if (transform.parent.gameObject.GetComponent<NPCMove>().animateAttack)
         {
             npcAnim.SetBool("Attacking", true);
+        }
+        else
+        {
+            npcAnim.SetBool("Attacking", false);
         }
 
     }

@@ -9,6 +9,8 @@ public class NPCMove : TacticsMove
     public static bool NPCMoving = false;
     public static bool NPC_Attacking = false;
     public static bool NPC_WillAttack = false;
+    public bool animateMove = false;
+    public bool animateAttack = false;
 
     List<Tile> selectedTiles;   
 
@@ -23,6 +25,11 @@ public class NPCMove : TacticsMove
 	// Update is called once per frame
 	void Update ()
     {
+        if(NPCMoving == false)
+        {
+            animateMove = false;
+        }
+
         Debug.DrawRay(transform.position, transform.forward);
 
         if (!turn)  // Is it my turn
@@ -33,6 +40,7 @@ public class NPCMove : TacticsMove
         if (newUnitTurn)
         {   // Just got turn. Find path and start moving
             NPCMoving = false;
+            animateMove = false;
             selectedTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             FindNearestTarget();    // Find nearest target "Player"
             CalculatePath();        // Calculate A* path to nearest Player
@@ -44,7 +52,8 @@ public class NPCMove : TacticsMove
 
         if (moving)
         {   // Continue moving to target tile
-            Move();
+            animateMove = true;
+            Move(this.gameObject);
             NPCMoving = true;
             PlayerMove.playerMoving = false;
             PlayerMove.playerAttacking = false;
@@ -78,7 +87,7 @@ public class NPCMove : TacticsMove
         GameObject smallestHealthObj = null;
         float distance = Mathf.Infinity;
         int smallestHealth = 1000;
-        int myHealth = this.GetComponent<Unit>().GetHealth();
+        int myHealth = transform.gameObject.GetComponent<Unit>().GetHealth();
         float myRange = this.GetComponent<Unit>().GetRange();
 
         foreach (GameObject obj in targets)

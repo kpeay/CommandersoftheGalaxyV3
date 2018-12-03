@@ -5,7 +5,8 @@ using UnityEngine;
 public class GR1Anim : MonoBehaviour {
 
     Animator playerAnim;
-    PlayerMove pmGR1 = new PlayerMove();
+    //bool letsMove = this.PlayerMove.animateMove;
+    //bool letsAttack = this.gameObject.GetComponent<PlayerMove>().animateAttack;
 
     // Use this for initialization
     void Start()
@@ -16,29 +17,29 @@ public class GR1Anim : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        bool letsMove = pmGR1.animateMove;
-        bool letsAttack = pmGR1.animateAttack;
+        
 
-        if (letsMove)
+        if (transform.parent.gameObject.GetComponent<PlayerMove>().animateMove)
         {
-            playerAnim.SetBool("Running", true);
-            Debug.Log(letsMove);
+           playerAnim.SetBool("Running", true);
+            Debug.Log(transform.parent.gameObject.GetComponent<PlayerMove>().animateMove);
         }
-        else
+        
+        if (!transform.parent.gameObject.GetComponent<PlayerMove>().animateMove)
         {
             playerAnim.SetBool("Running", false);
-            Debug.Log(letsMove);
+            Debug.Log(transform.parent.gameObject.GetComponent<PlayerMove>().animateMove);
         }
 
-        if (letsAttack)
+        if (transform.parent.gameObject.GetComponent<PlayerMove>().animateAttack)
         {
             playerAnim.SetBool("Attacking", true);
-            Debug.Log(letsAttack);
+            Debug.Log(transform.parent.gameObject.GetComponent<PlayerMove>().animateAttack);
         }
         else
         {
             playerAnim.SetBool("Attacking", false);
-            Debug.Log(letsAttack);
+            Debug.Log(transform.parent.gameObject.GetComponent<PlayerMove>().animateAttack);
         }
 
     }

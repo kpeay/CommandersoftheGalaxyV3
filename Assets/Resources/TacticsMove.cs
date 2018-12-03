@@ -60,13 +60,15 @@ public class TacticsMove : MonoBehaviour
     {
         RaycastHit hit;
         Tile tile = null;
+        
+
 
         if (Physics.Raycast(target.transform.position, -Vector3.up, out hit, 1))
         {
-            tile = hit.collider.GetComponent<Tile>();
+         tile = hit.collider.GetComponent<Tile>();
         }
 
-        return tile;
+            return tile;
     }
 
     public void ComputeAdjacencyLists(float jumpHeight, Tile target)
@@ -264,7 +266,7 @@ public class TacticsMove : MonoBehaviour
         }
     }
 
-    public void Move()
+    public void Move(GameObject objectRef)
     {
         //Debug.Log("-----Move entered-----------");
         //Debug.Log("fath.Count " + path.Count);
@@ -311,6 +313,10 @@ public class TacticsMove : MonoBehaviour
             // Movement to target tile ended.
             if (willAttackAfterMove)    // Will we attack enemy
             {
+                if (objectRef.tag == "Payer")
+                    objectRef.GetComponent<PlayerMove>().animateMove = false;
+                if (objectRef.tag == "NPC")
+                    objectRef.GetComponent<NPCMove>().animateMove = false;
                 // Set switch to start attack
                 startAttack = true;
                 attacking = true;
@@ -318,9 +324,18 @@ public class TacticsMove : MonoBehaviour
             }
             else
             {   // No attacking. Therefore, give up my turn.
+                if(objectRef.tag == "Player") { 
+                objectRef.GetComponent<PlayerMove>().animateMove = false;
+                }
+
+                if (objectRef.tag == "NPC")
+                {
+                    objectRef.GetComponent<NPCMove>().animateMove = false;
+                }
                 TurnManager.EndTurn();
             }
         }
+
     }
 
     protected void RemoveSelectableTiles()
