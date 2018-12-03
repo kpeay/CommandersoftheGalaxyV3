@@ -160,6 +160,10 @@ Prefab:
       propertyPath: m_Name
       value: MuhafizSoldier (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114490669243090496, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
     - {fileID: 33834679702898442, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
@@ -3483,6 +3487,10 @@ Prefab:
       propertyPath: m_Name
       value: MuhafizSoldier (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114490669243090496, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
     - {fileID: 33834679702898442, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
@@ -4211,6 +4219,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -6134,12 +6146,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 170076733}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 300, z: 0}
+  m_LocalRotation: {x: 0.40821788, y: -0.2345697, z: 0.109381646, w: 0.8754262}
+  m_LocalPosition: {x: 0, y: 300, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &174336266
 GameObject:
@@ -17670,6 +17682,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -19435,6 +19451,10 @@ Prefab:
     - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
       propertyPath: m_Name
       value: MuhafizTank (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33271771802544856, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
@@ -21385,6 +21405,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -25047,6 +25071,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -28129,6 +28157,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -32746,6 +32778,10 @@ Prefab:
     - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
       propertyPath: m_Name
       value: MuhafizTank (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33271771802544856, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
@@ -42285,6 +42321,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -45993,6 +46033,10 @@ Prefab:
       propertyPath: m_Name
       value: MuhafizRange (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33360492614339582, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
     - {fileID: 114037801118518270, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
@@ -47070,6 +47114,10 @@ Prefab:
     - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_Name
       value: MuhafizRange (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33360492614339582, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
@@ -59152,6 +59200,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -60146,6 +60198,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114490669243090496, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
     - {fileID: 33834679702898442, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
@@ -60571,7 +60627,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_LocalRotation.y
@@ -60579,7 +60635,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_LocalRotation.w
@@ -60592,6 +60648,18 @@ Prefab:
     - target: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33360492614339582, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
@@ -61070,6 +61138,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -63413,6 +63485,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b16b4ae2c9896304089cc16d1a3ce0f6, type: 2}
+    - target: {fileID: 100132, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -66890,6 +66966,10 @@ Prefab:
     - target: {fileID: 4780814092583656, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33271771802544856, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
@@ -71307,7 +71387,7 @@ RectTransform:
   - {fileID: 1206398943}
   - {fileID: 1311844541}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
