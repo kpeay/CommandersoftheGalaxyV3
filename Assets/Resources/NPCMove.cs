@@ -36,7 +36,7 @@ public class NPCMove : TacticsMove
             selectedTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             FindNearestTarget();    // Find nearest target "Player"
             CalculatePath();        // Calculate A* path to nearest Player
-            selectedTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
+            //selectedTiles = FindSelectableTiles(gameObject);  // Shows all potential target tile moves
             newUnitTurn = false;
             moving = true;
             return;
