@@ -9,7 +9,7 @@ public class NPCAnimController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        npcAnim = GetComponent<Animator>();
+        npcAnim = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame

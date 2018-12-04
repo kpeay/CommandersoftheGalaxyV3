@@ -27,7 +27,11 @@ public class NPCMove : TacticsMove
     {
         if(NPCMoving == false)
         {
-            animateMove = false;
+            this.animateMove = false;
+        }
+        else
+        {
+            animateMove = true;
         }
 
         Debug.DrawRay(transform.position, transform.forward);
@@ -52,7 +56,7 @@ public class NPCMove : TacticsMove
 
         if (moving)
         {   // Continue moving to target tile
-            animateMove = true;
+            this.animateMove = true;
             Move(this.gameObject);
             NPCMoving = true;
             PlayerMove.playerMoving = false;
