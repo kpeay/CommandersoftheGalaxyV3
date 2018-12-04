@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour {
     public int move = 5;
     public float range = 5f; //0.5 is equal to one tile away from unit
     public int health = 10; //set back to 10 later
+    public string type = "NoType"; //The type class of the Unit: Range, Armour, Melee, Commander
 
 	// Use this for initialization
 	void Start () {
@@ -87,6 +88,10 @@ public class Unit : MonoBehaviour {
     //called when ever a unit takes damage
     public void TakeDmg(int dmg)
     {
+        //bool takingDamage = true;
+        //Damage dam = new Damage();
+       // this.GetComponent<Damage>().SetDamage(dmg);
+        //this.GetComponent<Damage>().ChangeDamage(takingDamage);
         health = health - dmg;
 
         //if health is less than 1 the unit is killed

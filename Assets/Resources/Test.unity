@@ -2004,6 +2004,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: defense
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -2024,11 +2034,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
-  move: 5
+  attack: 3
+  defense: 3
+  move: 2
   range: 5
   health: 10
+  type: NoType
 --- !u!114 &51222388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2651,10 +2662,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 1
   health: 10
+  type: NoType
 --- !u!114 &65003669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4223,6 +4235,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -4453,6 +4469,21 @@ Prefab:
     - target: {fileID: 4395091733093560, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: attack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: defense
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: range
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33440914851721130, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
@@ -6798,16 +6829,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 3
+  defense: 3
   move: 5
-  range: 5
+  range: 4
   health: 10
+  type: Range
 --- !u!4 &180081584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c,
     type: 2}
   m_PrefabInternal: {fileID: 1391361310}
+--- !u!114 &180081585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 180081579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1001 &182886736
 Prefab:
   m_ObjectHideFlags: 0
@@ -9580,6 +9626,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4914878283270994, guid: 4642f4c2a8ae3be40bfc985fbd942aca,
     type: 2}
   m_PrefabInternal: {fileID: 270861334}
+--- !u!1 &271127639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1790042395656948, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c,
+    type: 2}
+  m_PrefabInternal: {fileID: 513216114}
+--- !u!114 &271127645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271127639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
+--- !u!1 &280027132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1141235421149096, guid: 31a36d81cc4f19349a4e17069cc3b228,
+    type: 2}
+  m_PrefabInternal: {fileID: 961932901}
+--- !u!114 &280027137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 280027132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &282028918
 GameObject:
   m_ObjectHideFlags: 0
@@ -10676,6 +10760,16 @@ Prefab:
       propertyPath: m_Name
       value: GuczehirT (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: attack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -11136,11 +11230,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Melee
 --- !u!114 &333913083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11227,6 +11322,25 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 334981234}
   m_CullTransparentMesh: 0
+--- !u!1 &337417198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1141235421149096, guid: 31a36d81cc4f19349a4e17069cc3b228,
+    type: 2}
+  m_PrefabInternal: {fileID: 122015158}
+--- !u!114 &337417203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 337417198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &345568294
 GameObject:
   m_ObjectHideFlags: 0
@@ -11337,6 +11451,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345568294}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &348201355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1141235421149096, guid: 31a36d81cc4f19349a4e17069cc3b228,
+    type: 2}
+  m_PrefabInternal: {fileID: 415911438}
+--- !u!114 &348201360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348201355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &349863649
 GameObject:
   m_ObjectHideFlags: 0
@@ -12053,11 +12186,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 3
+  defense: 3
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: NoType
 --- !u!114 &362619249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12796,6 +12930,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402771536}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &405803056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329,
+    type: 2}
+  m_PrefabInternal: {fileID: 324066664}
+--- !u!114 &405803061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 405803056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1001 &406663824
 Prefab:
   m_ObjectHideFlags: 0
@@ -12921,6 +13074,21 @@ Prefab:
     - target: {fileID: 1141235421149096, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
       propertyPath: m_Name
       value: GuczehirR (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: attack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: defense
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: range
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33440914851721130, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
@@ -13280,6 +13448,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -14527,15 +14699,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: melee
 --- !u!4 &496390139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525129739493094, guid: a7fe86e982b58974bac76b67285a9cbc,
     type: 2}
   m_PrefabInternal: {fileID: 1811015131}
+--- !u!114 &496390140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496390134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &497535302
 GameObject:
   m_ObjectHideFlags: 0
@@ -14662,11 +14849,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Armour
 --- !u!114 &498513045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14693,6 +14881,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4780814092583656, guid: 27f76b492c086fa429db49158d6a0d7c,
     type: 2}
   m_PrefabInternal: {fileID: 678986985}
+--- !u!114 &498513049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 498513043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &500715102
 GameObject:
   m_ObjectHideFlags: 0
@@ -14929,11 +15131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 3
+  defense: 3
   move: 5
-  range: 5
+  range: 4
   health: 10
+  type: Range
 --- !u!114 &504601650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15105,7 +15308,7 @@ Prefab:
     - target: {fileID: 114574610054292632, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c,
         type: 2}
       propertyPath: health
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1797511590168844, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c, type: 2}
       propertyPath: m_TagString
@@ -15114,7 +15317,27 @@ Prefab:
     - target: {fileID: 114574610054292632, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c,
         type: 2}
       propertyPath: range
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114574610054292632, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c,
+        type: 2}
+      propertyPath: type
+      value: Commander
+      objectReference: {fileID: 0}
+    - target: {fileID: 137123427935789556, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0fd9a562f88f1574fa6b15d5a01d1597, type: 2}
+    - target: {fileID: 114574610054292632, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c,
+        type: 2}
+      propertyPath: attack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114574610054292632, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c,
+        type: 2}
+      propertyPath: defense
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62cab6b6d855e4e458cdc0fbde1f1f2c, type: 2}
@@ -15605,11 +15828,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 3
+  defense: 3
   move: 5
-  range: 5
+  range: 4
   health: 10
+  type: Range
 --- !u!114 &544028294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17686,6 +17910,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -18922,16 +19150,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Armour
 --- !u!4 &658353976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4780814092583656, guid: 27f76b492c086fa429db49158d6a0d7c,
     type: 2}
   m_PrefabInternal: {fileID: 2004528868}
+--- !u!114 &658353977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 658353971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &659546806
 GameObject:
   m_ObjectHideFlags: 0
@@ -19193,6 +19436,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 671267460}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &672968704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329,
+    type: 2}
+  m_PrefabInternal: {fileID: 2124366376}
+--- !u!114 &672968709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672968704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1001 &675656204
 Prefab:
   m_ObjectHideFlags: 0
@@ -19476,16 +19738,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 3
+  defense: 3
   move: 5
-  range: 5
+  range: 4
   health: 10
+  type: Range
 --- !u!4 &679893725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c,
     type: 2}
   m_PrefabInternal: {fileID: 1425370902}
+--- !u!114 &679893726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679893720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &680688661
 GameObject:
   m_ObjectHideFlags: 0
@@ -21409,6 +21686,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -25075,6 +25356,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -25526,11 +25811,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 3
+  defense: 3
   move: 5
-  range: 5
+  range: 4
   health: 10
+  type: Range
 --- !u!1 &860962593
 GameObject:
   m_ObjectHideFlags: 0
@@ -26191,6 +26477,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 883940382}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &885912023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329,
+    type: 2}
+  m_PrefabInternal: {fileID: 1329798950}
+--- !u!114 &885912028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885912023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1001 &889843315
 Prefab:
   m_ObjectHideFlags: 0
@@ -26749,16 +27054,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 3
+  defense: 3
   move: 5
-  range: 5
+  range: 4
   health: 10
+  type: Range
 --- !u!4 &900944998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c,
     type: 2}
   m_PrefabInternal: {fileID: 1826632960}
+--- !u!114 &900944999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 900944993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &918810081
 GameObject:
   m_ObjectHideFlags: 0
@@ -27918,6 +28238,16 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: attack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -28161,6 +28491,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -28329,6 +28663,21 @@ Prefab:
     - target: {fileID: 1141235421149096, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
       propertyPath: m_Name
       value: GuczehirR (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: attack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: defense
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458986707617118, guid: 31a36d81cc4f19349a4e17069cc3b228,
+        type: 2}
+      propertyPath: move
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33440914851721130, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
@@ -30724,6 +31073,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4218033654499750, guid: ee6287a89df656a4ab21225ecf2f4b32,
     type: 2}
   m_PrefabInternal: {fileID: 1012093428}
+--- !u!1 &1015537914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329,
+    type: 2}
+  m_PrefabInternal: {fileID: 51185645}
+--- !u!114 &1015537919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015537914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &1015900722
 GameObject:
   m_ObjectHideFlags: 0
@@ -32510,11 +32878,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Armour
+--- !u!1 &1065775118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329,
+    type: 2}
+  m_PrefabInternal: {fileID: 942960105}
+--- !u!114 &1065775123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065775118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &1066059196
 GameObject:
   m_ObjectHideFlags: 0
@@ -36323,6 +36711,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -38074,6 +38466,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -38135,6 +38531,16 @@ Prefab:
     - target: {fileID: 4997176137364116, guid: 7d16703215c1b09418149f1bede75329, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: defense
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: range
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -42325,6 +42731,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -43882,6 +44292,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: defense
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -45049,11 +45469,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 5
+  defense: 5
   move: 5
-  range: 1
+  range: 2
   health: 10
+  type: Commander
 --- !u!1001 &1373114749
 Prefab:
   m_ObjectHideFlags: 0
@@ -45589,11 +46010,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Armour
 --- !u!114 &1383793357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49624,6 +50046,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -52471,15 +52897,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Melee
 --- !u!4 &1580346330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525129739493094, guid: a7fe86e982b58974bac76b67285a9cbc,
     type: 2}
   m_PrefabInternal: {fileID: 93678946}
+--- !u!114 &1580346331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580346325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &1582267044
 GameObject:
   m_ObjectHideFlags: 0
@@ -54776,6 +55217,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -55822,11 +56267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
-  defense: 4
+  attack: 2
+  defense: 2
   move: 5
-  range: 5
+  range: 1
   health: 10
+  type: NoType
 --- !u!1 &1679301290
 GameObject:
   m_ObjectHideFlags: 0
@@ -57234,11 +57680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 1
   health: 10
+  type: NoType
 --- !u!1 &1730225032
 GameObject:
   m_ObjectHideFlags: 0
@@ -58230,6 +58677,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -58622,6 +59073,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -58902,10 +59357,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 1
   health: 10
+  type: NoType
 --- !u!114 &1774911879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59204,6 +59660,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -59235,10 +59695,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Melee
 --- !u!1001 &1787354218
 Prefab:
   m_ObjectHideFlags: 0
@@ -60902,11 +61363,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Armour
 --- !u!114 &1833250298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60933,6 +61395,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4780814092583656, guid: 27f76b492c086fa429db49158d6a0d7c,
     type: 2}
   m_PrefabInternal: {fileID: 1074546162}
+--- !u!114 &1833250302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1833250296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &1834355937 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100132, guid: 909c98a67eb375e4b842cc17875201c6,
@@ -60949,11 +61425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 1
   health: 10
+  type: NoType
 --- !u!114 &1834355940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61142,6 +61619,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -63389,7 +63870,7 @@ Prefab:
     - target: {fileID: 114184174332105860, guid: 44d5b208ed9f9264c84114be298142a3,
         type: 2}
       propertyPath: range
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114206619365727788, guid: 44d5b208ed9f9264c84114be298142a3,
         type: 2}
@@ -63403,12 +63884,12 @@ Prefab:
     - target: {fileID: 114184174332105860, guid: 44d5b208ed9f9264c84114be298142a3,
         type: 2}
       propertyPath: health
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114822258059827150, guid: 44d5b208ed9f9264c84114be298142a3,
         type: 2}
       propertyPath: move
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4700907418412828, guid: 44d5b208ed9f9264c84114be298142a3, type: 2}
       propertyPath: m_RootOrder
@@ -63418,7 +63899,17 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4d3febd5da6c52344b6d6e0e19e64f9d, type: 2}
+      objectReference: {fileID: 2100000, guid: 2074f033ba193a440a989a92710a59eb, type: 2}
+    - target: {fileID: 114184174332105860, guid: 44d5b208ed9f9264c84114be298142a3,
+        type: 2}
+      propertyPath: attack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114822258059827150, guid: 44d5b208ed9f9264c84114be298142a3,
+        type: 2}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44d5b208ed9f9264c84114be298142a3, type: 2}
   m_IsPrefabAsset: 0
@@ -63489,6 +63980,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6401051591e5d18428008c4b56d9ba8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95e8f6abe7518544bf03d3d350bfd13, type: 3}
   m_IsPrefabAsset: 0
@@ -64392,6 +64887,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1907912266}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1908387271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329,
+    type: 2}
+  m_PrefabInternal: {fileID: 1228341702}
+--- !u!114 &1908387276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1908387271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1001 &1912864521
 Prefab:
   m_ObjectHideFlags: 0
@@ -64499,10 +65013,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Melee
 --- !u!1 &1915904979
 GameObject:
   m_ObjectHideFlags: 0
@@ -65768,15 +66283,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Melee
 --- !u!4 &1946766262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525129739493094, guid: a7fe86e982b58974bac76b67285a9cbc,
     type: 2}
   m_PrefabInternal: {fileID: 1591566}
+--- !u!114 &1946766263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1946766257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1 &1963545225
 GameObject:
   m_ObjectHideFlags: 0
@@ -68512,6 +69042,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -69065,11 +69599,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 1
   health: 10
+  type: NoType
 --- !u!1 &2058128120
 GameObject:
   m_ObjectHideFlags: 0
@@ -69450,10 +69985,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 4
-  defense: 4
+  defense: 2
   move: 5
-  range: 5
+  range: 1
   health: 10
+  type: NoType
 --- !u!1001 &2072982565
 Prefab:
   m_ObjectHideFlags: 0
@@ -70272,11 +70808,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccda873d334814cafad250ba5b8cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 4
+  attack: 2
   defense: 4
   move: 5
-  range: 5
+  range: 2
   health: 10
+  type: Armour
 --- !u!1001 &2086245010
 Prefab:
   m_ObjectHideFlags: 0
@@ -70344,6 +70881,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cfbf556d3a997a41af91ccdf392a056, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
   m_IsPrefabAsset: 0
@@ -71394,6 +71935,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2118002746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1108226503497476, guid: 44d5b208ed9f9264c84114be298142a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1892641804}
+--- !u!114 &2118002752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118002746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cbba4cd9854424099b4cd41817e3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  DamageText: {fileID: 0}
+  targetTime: 2
 --- !u!1001 &2124366376
 Prefab:
   m_ObjectHideFlags: 0
@@ -71440,6 +72000,16 @@ Prefab:
     - target: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329, type: 2}
       propertyPath: m_Name
       value: GuczehirT (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: attack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114487534470665090, guid: 7d16703215c1b09418149f1bede75329,
+        type: 2}
+      propertyPath: range
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}

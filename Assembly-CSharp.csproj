@@ -61,9 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Damage.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\GameOverScene.cs" />
     <Compile Include="Assets\GR1Anim.cs" />
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\NPCAnimController.cs" />
     <Compile Include="Assets\PlayerAnimController.cs" />
     <Compile Include="Assets\PlayerCombat.cs" />

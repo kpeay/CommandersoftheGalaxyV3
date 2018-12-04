@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : TacticsMove {
 
@@ -77,6 +78,16 @@ public class PlayerMove : TacticsMove {
         {
             skipUnit = false;
             DontMove();
+        }
+
+        if (Input.GetKeyDown("w"))
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+
+        if (Input.GetKeyDown("l"))
+        {
+            SceneManager.LoadScene("GameOverScene");
         }
 
 

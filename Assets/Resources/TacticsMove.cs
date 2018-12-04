@@ -159,14 +159,21 @@ public class TacticsMove : MonoBehaviour
     {
         path.Clear();
         Debug.Log("Tile in MoveToTile():" + tile);
-        tile.target = true;
-        moving = true;
-
-        Tile next = tile;
-        while (next != null)
+        if (tile == null)
         {
-            path.Push(next);
-            next = next.parent;
+            TurnManager.EndTurn(); //tee hee
+        }
+        else
+        {
+            tile.target = true;
+            moving = true;
+
+            Tile next = tile;
+            while (next != null)
+            {
+                path.Push(next);
+                next = next.parent;
+            }
         }
     }
 

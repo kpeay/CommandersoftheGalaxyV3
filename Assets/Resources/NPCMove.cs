@@ -85,33 +85,464 @@ public class NPCMove : TacticsMove
         // Simplest AI. Look for nearest player unit. Therefore, 
         // distance will be used to find an attackable player
         GameObject nearest = null;
+        GameObject removeThis = null;
         GameObject smallestHealthObj = null;
         float distance = Mathf.Infinity;
         int smallestHealth = 1000;
-        int myHealth = transform.gameObject.GetComponent<Unit>().GetHealth();
+        int smallestDefense = 1000;
+        int myHealth = this.GetComponent<Unit>().GetHealth();
+        Debug.Log("My health:" + myHealth);
         float myRange = this.GetComponent<Unit>().GetRange();
+        Debug.Log("My range:" + myRange);
+        int highestHealth = 0;
 
-        foreach (GameObject obj in targets)
+        List<GameObject> posTarget = new List<GameObject>();
+        List<GameObject> allies = new List<GameObject>(); //This the list of the NPCs friends
+
+        if (myHealth > 3)
         {
-            float d = Vector3.Distance(transform.position, obj.transform.position);
-            int objHealth = obj.GetComponent<Unit>().GetHealth();
-
-            if (d < distance)
+            Debug.Log(this.gameObject + " Health is greater than 3...");
+            float smallestDistance = Mathf.Infinity;
+            List<GameObject> tempList = new List<GameObject>(targets);
+            foreach (GameObject obj in tempList)
             {
-                distance = d;
-                nearest = obj;
+                float d = Vector3.Distance(transform.position, obj.transform.position);
+                Debug.Log("Distance between " + obj + " and " + this.gameObject);
+                int objHealth = obj.GetComponent<Unit>().GetHealth();
+                Debug.Log("Object's Health:" + objHealth);
+                int objDefense = obj.GetComponent<Unit>().GetDefense();
+                Debug.Log("Object's Defense:" + objDefense);
+                
+
+                if (d <= this.GetComponent<Unit>().range + this.GetComponent<Unit>().move)
+                {
+                    //add all enemies that are within the unit's potential range
+                    posTarget.Add(obj);
+                }
+                
             }
 
-            if (objHealth < smallestHealth && d < myRange)
-            {   // Found a Player within NPC reach
-                smallestHealth = objHealth;
-                smallestHealthObj = obj;
+            if (posTarget.Count != 0)
+            {
+                //compare the enemies' current health and defense to select the weakest enemy within range
+                do
+                {
+                    /*List<GameObject> tempList = new List<GameObject>();
+                    foreach(GameObject i in posTarget)
+                    {
+                        tempList.Add(i);
+                    }*/
+                     tempList = new List<GameObject>(posTarget);
+                    //decide to avoid "foreach" since we have an issue with Enumeration that a for loop will side step
+                    
+                    foreach (GameObject i in tempList)
+                    {
+                        if (i.GetComponent<Unit>().health <= smallestHealth)
+                        {
+                            smallestHealth = i.GetComponent<Unit>().health;
+                        }
+                        else
+                        {
+                            posTarget.Remove(i); //was posTarget
+                        }
+                    }
+                    Debug.Log("(Health)Number of elements in the posTarget: " + posTarget.Count);
+                    tempList = new List<GameObject>(posTarget);
+                    foreach (GameObject i in tempList)
+                    {
+                        if (i.GetComponent<Unit>().defense <= smallestDefense)
+                        {
+                            smallestDefense = i.GetComponent<Unit>().defense;
+                        }
+                        else
+                        {
+                            posTarget.Remove(i);
+                        }
+                    }
+                    Debug.Log("(Def)Number of elements in the posTarget: " + posTarget.Count);
+                    tempList = new List<GameObject>(posTarget);
+                    foreach (GameObject i in tempList)
+                    {
+                        float d = Vector3.Distance(transform.position, i.transform.position);
+                        if (d <= smallestDistance)
+                        {
+                            smallestDistance = d;
+                        }
+                        else
+                        {
+                            posTarget.Remove(i);
+                        }
+                    }
+                    Debug.Log("(Dist)Number of elements in the posTarget: " + posTarget.Count);
+
+                    if (posTarget.Count > 1)
+                    {
+                        posTarget.RemoveAt(0);
+                    }
+                    Debug.Log("(Remove(0))Number of elements in the posTarget: " + posTarget.Count);
+
+                } while (posTarget.Count > 1);
+
+                posTarget.ToArray(); //issue here, all the manipulatin we did was only to tempList which is now a different length
+                nearest = posTarget[0];
+                Debug.Log(nearest + " is Target");
+            }
+            else
+            {
+                 tempList = new List<GameObject>(targets);
+                foreach (GameObject obj in tempList)
+                {
+                    if (obj.GetComponent<Unit>().health <= smallestHealth)
+                    {
+                        smallestHealth = obj.GetComponent<Unit>().health;
+                        posTarget.Add(obj);
+                    }
+                    else
+                    {
+                        posTarget.Remove(obj);
+                    }
+                }
+                tempList = new List<GameObject>(posTarget);
+                foreach (GameObject i in tempList)
+                {
+                    if (i.GetComponent<Unit>().health <= smallestHealth)
+                    {
+                        smallestHealth = i.GetComponent<Unit>().health;
+                    }
+                    else
+                    {
+                        posTarget.Remove(i);
+                    }
+                }
+                tempList = new List<GameObject>(posTarget);
+                foreach (GameObject i in tempList)
+                {
+                    if (i.GetComponent<Unit>().defense <= smallestDefense)
+                    {
+                        smallestDefense = i.GetComponent<Unit>().defense;
+                    }
+                    else
+                    {
+                        posTarget.Remove(i); //tried basic list copying, worked until we got to this line
+                    }
+                }
+                tempList = new List<GameObject>(posTarget);
+                foreach (GameObject i in tempList)
+                {
+                    float d = Vector3.Distance(transform.position, i.transform.position);
+                    if (d <= smallestDistance)
+                    {
+                        smallestDistance = d;
+                    }
+                    else
+                    {
+                        posTarget.Remove(i);
+                    }
+                }
+
+                posTarget.ToArray();
+                nearest = posTarget[0];
+                Debug.Log(nearest + " is Target");
+            }
+            
+
+        }//end of if health >3 
+        else
+        {
+            Debug.Log(this.gameObject + " Health is less than 3...");
+            List<GameObject> tempList = new List<GameObject>(targets);
+            if (this.GetComponent<Unit>().type == "Range")
+            {
+                Debug.Log(this.gameObject + " Is Range");
+                foreach (GameObject o in tempList)
+                {
+                    float d = Vector3.Distance(transform.position, o.transform.position);
+
+                    if (d <= this.GetComponent<Unit>().range + this.GetComponent<Unit>().move)
+                    {
+                        if(o.GetComponent<Unit>().health < 3)
+                        {
+                            posTarget.Add(o); 
+                        }
+                    }
+                }
+                
+                if(posTarget.Count !=0)
+                {
+                    float d = Mathf.Infinity;
+                    tempList = new List<GameObject>(posTarget);
+                    foreach (GameObject o in tempList)
+                    {
+                        //float d = Vector3.Distance(transform.position, o.transform.position);
+                        if (o.GetComponent<Unit>().health == smallestHealth)
+                        {
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                                smallestHealth = o.GetComponent<Unit>().health;
+                            }
+
+                        }
+                       else if (o.GetComponent<Unit>().health < smallestHealth)
+                        {
+                            d = Vector3.Distance(transform.position, o.transform.position);
+                            nearest = o;
+                            smallestHealth = o.GetComponent<Unit>().health;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Didn't Lowest Health in Ranger.Health < 3");
+                        }
+
+                    }
+                    Debug.Log(nearest + " is Target");
+                }
+                else
+                {
+                    if (allies.Contains(this.gameObject))
+                    {
+                        allies.Remove(this.gameObject);
+                    }
+                    float d = Mathf.Infinity;
+                    if (allies.Count != 0)
+                    {
+                        tempList = new List<GameObject>(allies);
+                        foreach (GameObject o in tempList)
+                        {
+                            // float d = Vector3.Distance(transform.position, o.transform.position);
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                                //smallestHealth = o.GetComponent<Unit>().health;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        tempList = new List<GameObject>(targets);
+                        foreach (GameObject o in tempList)
+                        {
+                            // float d = Vector3.Distance(transform.position, o.transform.position);
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                            }
+
+                        }
+                    }
+                }
+            }
+            else if(this.GetComponent<Unit>().type == "Armour")
+            {
+                bool foundEnemy = false;
+                float d = Mathf.Infinity;
+                tempList = new List<GameObject>(targets);
+                foreach (GameObject o in tempList)
+                {
+                    if(Vector3.Distance(transform.position, o.transform.position) <= this.GetComponent<Unit>().range + this.GetComponent<Unit>().move)
+                    {
+                        float dist = Vector3.Distance(transform.position, o.transform.position);
+                        if (dist <= d)
+                        {
+                            foundEnemy = true; //y
+                            d = dist;
+                            nearest = o;
+                            //smallestHealth = o.GetComponent<Unit>().health;
+                        }                    
+                    }
+                    else
+                    {
+                        foundEnemy = false; 
+                        Debug.Log("Armour unit health less than 3; No enemy target found");
+                        
+                    }
+                }
+                if (!foundEnemy)
+                {
+                    if (allies.Contains(this.gameObject))
+                    {
+                        allies.Remove(this.gameObject);
+                    }
+                    if (allies.Count != 0)
+                    {
+                        tempList = new List<GameObject>(allies);
+                        foreach (GameObject o in tempList)
+                        {
+                            // float d = Vector3.Distance(transform.position, o.transform.position);
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                                //smallestHealth = o.GetComponent<Unit>().health;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        tempList = new List<GameObject>(targets);
+                        foreach (GameObject o in tempList)
+                        {
+                            // float d = Vector3.Distance(transform.position, o.transform.position);
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                            }
+
+                        }
+                    }
+                }
+                
+            }
+            else if(this.GetComponent<Unit>().type == "Melee")
+            {
+                float d = Mathf.Infinity;
+                bool foundEnemy = false;
+                tempList = new List<GameObject>(targets);
+                foreach (GameObject o in tempList)
+                {
+                    float dist = Vector3.Distance(transform.position, o.transform.position);
+
+                    if (dist <= this.GetComponent<Unit>().range + this.GetComponent<Unit>().move)
+                    {
+                        if (o.GetComponent<Unit>().health == smallestHealth)
+                        {
+                            //float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                                smallestHealth = o.GetComponent<Unit>().health;
+                            }
+
+                        }
+                        else if (o.GetComponent<Unit>().health < smallestHealth)
+                        {
+                            d = dist;
+                            nearest = o;
+                            smallestHealth = o.GetComponent<Unit>().health;
+                        }
+
+                        foundEnemy = true;
+                    }
+                }
+                if (!foundEnemy)
+                {
+                    tempList = new List<GameObject>(targets);
+                    foreach (GameObject o in tempList)
+                    {
+                        // float d = Vector3.Distance(transform.position, o.transform.position);
+                        float dist = Vector3.Distance(transform.position, o.transform.position);
+                        if (dist <= d)
+                        {
+                            d = dist;
+                            nearest = o;
+                            smallestHealth = o.GetComponent<Unit>().health;
+                        }
+
+                    }
+                }
+            }
+            if (this.GetComponent<Unit>().type == "Commander")
+            {
+                tempList = new List<GameObject>(targets);
+                foreach (GameObject o in tempList)
+                {
+                    float d = Vector3.Distance(transform.position, o.transform.position);
+
+                    if (d <= this.GetComponent<Unit>().range + this.GetComponent<Unit>().move)
+                    {
+                        if (o.GetComponent<Unit>().health < 6)
+                        {
+                            posTarget.Add(o);
+                        }
+                    }
+                }
+
+                if (posTarget.Count != 0)
+                {
+                    float d = Mathf.Infinity;
+                    tempList = new List<GameObject>(posTarget);
+                    foreach (GameObject o in tempList)
+                    {
+                        //float d = Vector3.Distance(transform.position, o.transform.position);
+                        if (o.GetComponent<Unit>().health == smallestHealth)
+                        {
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                                smallestHealth = o.GetComponent<Unit>().health;
+                            }
+
+                        }
+                        else if (o.GetComponent<Unit>().health < smallestHealth)
+                        {
+                            d = Vector3.Distance(transform.position, o.transform.position);
+                            nearest = o;
+                            smallestHealth = o.GetComponent<Unit>().health;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Didn't Lowest Health in commander.Health < 6");
+                        }
+                    }
+                }
+                else
+                {
+                    if (allies.Contains(this.gameObject))
+                    {
+                        allies.Remove(this.gameObject);
+                    }
+                    float d = Mathf.Infinity;
+                    if (allies.Count != 0)
+                    {
+                        tempList = new List<GameObject>(allies);
+                        foreach (GameObject o in tempList)
+                        {
+                            // float d = Vector3.Distance(transform.position, o.transform.position);
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                                //smallestHealth = o.GetComponent<Unit>().health;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        tempList = new List<GameObject>(targets);
+                        foreach (GameObject o in tempList)
+                        {
+                            // float d = Vector3.Distance(transform.position, o.transform.position);
+                            float dist = Vector3.Distance(transform.position, o.transform.position);
+                            if (dist <= d)
+                            {
+                                d = dist;
+                                nearest = o;
+                            }
+
+                        }
+                    }
+                }
             }
 
         }
-
-        
-
         if (smallestHealthObj == null)
         {
             // Set nearest player as target
@@ -134,6 +565,10 @@ public class NPCMove : TacticsMove
 
     void FindOffRangeTargetTile(GameObject nearestPlayer)
     {
+        if(nearestPlayer == null)
+        {
+            TurnManager.EndTurn();
+        }
         float distance = Mathf.Infinity;
         // Find the closest selectable tile to nearest player
         foreach (Tile t in selectedTiles)
@@ -154,6 +589,18 @@ public class NPCMove : TacticsMove
         float distance = Mathf.Infinity;
         Tile playerTile = GetTargetTile(nearestPlayer);
         // Find the closest adjacent selectable tile to attackable player
+        if(this.GetComponent<Unit>().range == 1)
+        {
+            foreach(Tile t in playerTile.adjacencyList)
+            {
+                if (!t.selectable)
+                {
+                    continue; 
+                }
+                actualTargetTile = t;
+            }
+            actualTargetTile.target = true;
+        }
         foreach (Tile t in playerTile.adjacencyList)
         {
             if (!t.selectable) continue;
