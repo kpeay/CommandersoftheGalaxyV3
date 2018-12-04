@@ -31,7 +31,7 @@ public class NPCMove : TacticsMove
         }
         else
         {
-            animateMove = true;
+            //animateMove = true;
         }
 
         Debug.DrawRay(transform.position, transform.forward);
