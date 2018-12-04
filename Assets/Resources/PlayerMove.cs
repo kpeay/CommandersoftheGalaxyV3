@@ -14,6 +14,7 @@ public class PlayerMove : TacticsMove {
     public static bool playerAttacking = false;
     public static bool skipUnit = false;
 
+    
     List<Tile> selectedTiles;
 
     private static int attackCount = 0;

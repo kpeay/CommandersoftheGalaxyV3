@@ -121,4 +121,9 @@ public class TurnManager : MonoBehaviour
             }
         }
     }
+
+    public static List<TacticsMove> GetTeamList(string teamName)
+    {
+        return units[teamName];
+    }
 }
