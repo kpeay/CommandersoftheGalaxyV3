@@ -29,7 +29,8 @@ public class TurnManager : MonoBehaviour
     {
         List<TacticsMove> teamList = units[turnKey.Peek()];
 
-        foreach (TacticsMove unit in teamList)
+        List<TacticsMove> tempList = new List<TacticsMove>(teamList);
+        foreach (TacticsMove unit in tempList)
         {
             turnTeam.Enqueue(unit);
         }
