@@ -10,6 +10,9 @@ public class Unit : MonoBehaviour {
     public float range = 5f; //0.5 is equal to one tile away from unit
     public int health = 10; //set back to 10 later
     public string type = "NoType"; //The type class of the Unit: Range, Armour, Melee, Commander
+    public Tile tileBelow;
+    public Tile tileBelowClicked;
+    RaycastHit hitR;
 
 	// Use this for initialization
 	void Start () {
@@ -18,10 +21,22 @@ public class Unit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-     
 
-	}
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hitR, Mathf.Infinity))
+        {
+            if (hitR.collider.tag == "Tile")
+            {
+                tileBelow = hitR.collider.GetComponent<Tile>();
+
+            }
+            else
+            {
+                tileBelow = null;
+            }
+
+        }
+
+    }
 
     public int GetAttack()
     {
@@ -103,5 +118,40 @@ public class Unit : MonoBehaviour {
             //destroy this instance of game object
             Destroy(this.gameObject);
         }
+    }
+
+    //store the tile the unit is standing on
+    public Tile GetTile()
+    {
+        Tile tile;
+
+        //Create raycast
+        RaycastHit hit;
+
+        //Check to see what is above tile. If object is above, return tag. 
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
+        {
+            if (hit.collider.tag == "Tile")
+            {
+                tile = hit.collider.GetComponent<Tile>();
+
+                Debug.Log("Tile returned with Unit.GetTile(): " + tile);
+                
+            }
+            else 
+            {
+                Debug.Log("No tile was found with Unit.GetTile()");
+                tile = null;
+            }
+
+        }
+        else
+        {
+            Debug.Log("No tile was found with Unit.GetTile()");
+            tile = null;
+        }
+        
+        return tile;
+
     }
 }

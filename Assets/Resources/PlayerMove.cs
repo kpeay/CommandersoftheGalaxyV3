@@ -123,6 +123,7 @@ public class PlayerMove : TacticsMove {
                     {
                         moving = true;
                         Debug.Log("PlayerMove() t:" + t);
+                        this.GetComponent<Unit>().tileBelowClicked = t;
                         MoveToTile(t);
                     }
                 }

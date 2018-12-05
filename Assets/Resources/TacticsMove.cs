@@ -65,14 +65,93 @@ public class TacticsMove : MonoBehaviour
 
         Debug.Log("transform.position:" + target.transform.position);
         Debug.DrawRay(transform.position, -Vector3.up, Color.magenta);
+
         if (Physics.Raycast(target.transform.position, -Vector3.up, out hit, 1000))
         {
             Debug.Log("Raycast Hit");
 
          tile = hit.collider.GetComponent<Tile>();
         }
+
         Debug.Log("GetTargetTile() return:" + tile);
-            return tile;
+
+        //if still null, try to use the getTile function in Unit.cs
+        if (tile == null)
+        {
+            tile = target.GetComponent<Unit>().GetTile();
+            Debug.Log("Unit.GetTile() return:" + tile);
+        }
+        
+        //if still null, try taking the unit's tileBelow variable stored in the unit script 
+        if(tile == null)
+        {
+            tile = target.GetComponent<Unit>().tileBelow;
+            Debug.Log("Unit.tileBelow return:" + tile);
+
+        }
+
+        //if still null, try taking the unit's tileBelow variable stored in the unit script 
+        if (tile == null)
+        {
+            tile = target.GetComponent<Unit>().tileBelowClicked;
+            Debug.Log("Unit.tileBelowClicked return:" + tile);
+
+        }
+
+        //if tile is still null, search through all tiles, and match their above unit to the unit stored. if matched, set tile = matched tile tile.cs
+        if (tile == null)
+        {
+            GameObject[] tileArray = GameObject.FindGameObjectsWithTag("Tile");
+
+            foreach(GameObject t in tileArray)
+            {
+                if(t.GetComponent<Tile>().unitObject == target)
+                {
+                    tile = t.GetComponent<Tile>();
+                    Debug.Log("Tile's Tile.cs return:" + tile);
+                }
+            }
+        }
+
+        //if tile is still null, search through all tiles, and match their above unit to the unit stored. if matched, set tile = matched tile tile.cs
+        if (tile == null)
+        {
+            GameObject[] tileArray = GameObject.FindGameObjectsWithTag("Tile");
+
+            foreach (GameObject t in tileArray)
+            {
+                if (t.GetComponent<Tile>().GetUnitObject() == target)
+                {
+                    tile = t.GetComponent<Tile>();
+                    Debug.Log("Tile's Tile.cs return:" + tile);
+                }
+            }
+        }
+
+        //if still null, try to use the getTile function in Unit.cs
+        if (tile == null)
+        {
+            tile = target.transform.parent.GetComponent<Unit>().GetTile();
+            Debug.Log("Unit.GetTile() (parent) return:" + tile);
+        }
+
+        //if still null, try taking the unit's tileBelow variable stored in the unit script 
+        if (tile == null)
+        {
+            tile = target.transform.parent.GetComponent<Unit>().tileBelow;
+            Debug.Log("Unit.tileBelow (parent) return:" + tile);
+
+        }
+
+        //if still null, try taking the unit's tileBelow variable stored in the unit script 
+        if (tile == null)
+        {
+            tile = target.transform.parent.GetComponent<Unit>().tileBelowClicked;
+            Debug.Log("Unit.tileBelowClicked (parent) return:" + tile);
+
+        }
+
+        return tile;
     }
 
     public void ComputeAdjacencyLists(float jumpHeight, Tile target)

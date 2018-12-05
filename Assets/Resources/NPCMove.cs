@@ -692,23 +692,35 @@ public class NPCMove : TacticsMove
         }
         if (unitOutOfRange)
         {
+            //debug. determine if unitOutofRange is true
+            Debug.Log("unitOutOfRange = true at the end of AI desision making");
+
             // Set nearest player as target
             playerUnit = nearest;
             target = nearest;
+
+            //debug. display what is pasing to the function
+            Debug.Log("Target being passed to FindOffRangeTargetTile: " + target);
             FindOffRangeTargetTile(target);
         }
         else
         {   // There is a player within my range.
             // Set it as target to attack.
+
+            //debug. determine if unitOutofRange is true
+            Debug.Log("unitOutOfRange = false at the end of AI desision making");
+
             playerUnit = nearest;
             target = nearest;
-            //Debug.Log("Set Player Tile attackable----");
+          
             //willAttackAfterMove = true;
             if(willAttackAfterMove == true)
             {
                 NPC_WillAttack = true;
             }
-            
+
+            //debug. display what is pasing to the function
+            Debug.Log("Target being passed to FindInRangeTargetTile: " + target);
             FindInRangeTargetTile(target);
         }
 
@@ -738,7 +750,14 @@ public class NPCMove : TacticsMove
     void FindInRangeTargetTile(GameObject nearestPlayer)
     {
         float distance = Mathf.Infinity;
+
+        //debug. display what is being passed to GetTargetTile
+        Debug.Log("GetTargetTile(" + nearestPlayer + ")");
         Tile playerTile = GetTargetTile(nearestPlayer);
+
+        //debug. display what playerTile is
+        Debug.Log("PlayerTile: " + playerTile);
+
         // Find the closest adjacent selectable tile to attackable player
         if (this.GetComponent<Unit>().range == 1)
         {
@@ -750,6 +769,9 @@ public class NPCMove : TacticsMove
                 }
                 actualTargetTile = t;
             }
+
+            //debug. display what actualTargetTile is set as
+            Debug.Log("actualTargetTile:" + actualTargetTile);
             actualTargetTile.target = true;
         }
         else
@@ -768,6 +790,10 @@ public class NPCMove : TacticsMove
                     }
                 }
             }
+
+            //debug. display what actualTargetTile is set as
+            Debug.Log("actualTargetTile:" + actualTargetTile);
+
             if (actualTargetTile != null)
             {
                 actualTargetTile.target = true;

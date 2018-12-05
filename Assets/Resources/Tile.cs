@@ -142,6 +142,7 @@ public class Tile : MonoBehaviour
 
     public GameObject GetUnitObject()
     {
+        GetUnit();
         return unitObject;
     }
 

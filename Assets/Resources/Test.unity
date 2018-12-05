@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -36837,7 +36837,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Name
-      value: GRAvatar
+      value: GRAvatar(2)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Controller
@@ -50172,7 +50172,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Name
-      value: GSAvatar
+      value: GSAvatar(1)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Controller
@@ -55343,7 +55343,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Name
-      value: GTAvatar
+      value: GTAvatar(2)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Controller
@@ -58803,7 +58803,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Name
-      value: GSAvatar
+      value: GSAvatar(2)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Controller
@@ -59199,7 +59199,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Name
-      value: GTAvatar
+      value: GTAvatar(1)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Controller
@@ -69168,7 +69168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Name
-      value: GRAvatar
+      value: GRAvatar(1)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 909c98a67eb375e4b842cc17875201c6, type: 3}
       propertyPath: m_Controller
