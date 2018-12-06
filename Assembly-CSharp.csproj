@@ -57,6 +57,7 @@
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\GameOverScene.cs" />
      <Compile Include="Assets\GR1Anim.cs" />
+     <Compile Include="Assets\HealthBarController.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NPCAnimController.cs" />
      <Compile Include="Assets\PlayerAnimController.cs" />
