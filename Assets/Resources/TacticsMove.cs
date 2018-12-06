@@ -607,7 +607,7 @@ public class TacticsMove : MonoBehaviour
 
     protected void FindPath(Tile target)
     {
-        ComputeAdjacencyLists(jumpHeight, target);
+        //ComputeAdjacencyLists(jumpHeight, target);
         GetCurrentTile();
 
         List<Tile> openList = new List<Tile>();

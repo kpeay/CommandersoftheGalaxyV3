@@ -806,7 +806,7 @@ public class NPCMove : TacticsMove
         }
     }
 
-    void NPCAttacksPlayer(GameObject target)
+    void NPCAttacksPlayer(GameObject playerUnit)
     {
         animateAttack = true;
 
@@ -820,23 +820,6 @@ public class NPCMove : TacticsMove
         willAttackAfterMove = false;
         NPC_WillAttack = false;
         TurnManager.EndTurn();
-
-        // NPC Attacks nearest Player named target
-        //Debug.Log("NPC attacking player ........");
-        //attackCount++;      // Increase attack count for testing
-        //if (attackCount < 5)
-        //{
-        //Debug.Log("NPC attacking " + attackCount);
-        //}
-        //else
-        //{
-        //attackCount = 0;
-
-        // Run following when attack completes for turning to another unit
-        //Debug.Log("NPC attacks ended....Turning to another unit");
-        //attacking = false;
-        //TurnManager.EndTurn();
-        //}
     }
 
     public void SetAnimateAttack()

@@ -192,20 +192,6 @@ public class PlayerMove : TacticsMove {
         //Debug.Log("I done waited");
         //TurnManager.EndTurn();
 
-        /* attackCount++;      // Increase attack count for testing
-         if (attackCount < 5)
-         {
-             Debug.Log("Player hits for: " + dmg);
-         }
-         else
-         {
-             attackCount = 0;
-
-             // Run following when attack completes for turning to another unit
-             Debug.Log("Player attacks ended....Turning to another unit");
-             attacking = false;
-             TurnManager.EndTurn();
-         }*/
     }
 
     IEnumerator WaitTime(float sec)

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -163,6 +163,10 @@ Prefab:
     - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
       propertyPath: m_TagString
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114490669243090496, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
@@ -2014,6 +2018,10 @@ Prefab:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -2040,6 +2048,8 @@ MonoBehaviour:
   range: 5
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &51222388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,6 +2677,8 @@ MonoBehaviour:
   range: 1
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &65003669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3502,6 +3514,10 @@ Prefab:
     - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
       propertyPath: m_TagString
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114490669243090496, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
@@ -6835,6 +6851,8 @@ MonoBehaviour:
   range: 4
   health: 10
   type: Range
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!4 &180081584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c,
@@ -10770,6 +10788,10 @@ Prefab:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -11236,6 +11258,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Melee
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &333913083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12192,6 +12216,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &362619249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13089,6 +13115,10 @@ Prefab:
         type: 2}
       propertyPath: range
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141235421149096, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33440914851721130, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
@@ -14779,6 +14809,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: melee
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!4 &496390139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525129739493094, guid: a7fe86e982b58974bac76b67285a9cbc,
@@ -14930,6 +14962,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Armour
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &498513045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15212,6 +15246,8 @@ MonoBehaviour:
   range: 4
   health: 10
   type: Range
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &504601650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15909,6 +15945,8 @@ MonoBehaviour:
   range: 4
   health: 10
   type: Range
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &544028294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19233,6 +19271,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Armour
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!4 &658353976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4780814092583656, guid: 27f76b492c086fa429db49158d6a0d7c,
@@ -19795,6 +19835,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33271771802544856, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
@@ -19821,6 +19865,8 @@ MonoBehaviour:
   range: 4
   health: 10
   type: Range
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!4 &679893725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c,
@@ -25894,6 +25940,8 @@ MonoBehaviour:
   range: 4
   health: 10
   type: Range
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1 &860962593
 GameObject:
   m_ObjectHideFlags: 0
@@ -27137,6 +27185,8 @@ MonoBehaviour:
   range: 4
   health: 10
   type: Range
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!4 &900944998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556975403866212, guid: a7efefb61cad02046a347a24ad1d277c,
@@ -28400,6 +28450,10 @@ Prefab:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -28830,6 +28884,10 @@ Prefab:
         type: 2}
       propertyPath: move
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141235421149096, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33440914851721130, guid: 31a36d81cc4f19349a4e17069cc3b228, type: 2}
@@ -33036,6 +33094,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Armour
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1 &1065775118 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329,
@@ -33322,6 +33382,10 @@ Prefab:
     - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
       propertyPath: m_TagString
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953587600600824, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33271771802544856, guid: 27f76b492c086fa429db49158d6a0d7c, type: 2}
@@ -38693,6 +38757,10 @@ Prefab:
         type: 2}
       propertyPath: range
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -44454,6 +44522,10 @@ Prefab:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7d16703215c1b09418149f1bede75329, type: 2}
@@ -45627,6 +45699,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Commander
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1001 &1373114749
 Prefab:
   m_ObjectHideFlags: 0
@@ -46168,6 +46242,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Armour
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &1383793357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46610,6 +46686,10 @@ Prefab:
     - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_TagString
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33360492614339582, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
@@ -47692,6 +47772,10 @@ Prefab:
     - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
       propertyPath: m_TagString
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33360492614339582, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
@@ -53054,6 +53138,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Melee
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!4 &1580346330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525129739493094, guid: a7fe86e982b58974bac76b67285a9cbc,
@@ -56425,6 +56511,8 @@ MonoBehaviour:
   range: 1
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1 &1679301290
 GameObject:
   m_ObjectHideFlags: 0
@@ -57838,6 +57926,8 @@ MonoBehaviour:
   range: 1
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1 &1730225032
 GameObject:
   m_ObjectHideFlags: 0
@@ -59514,6 +59604,8 @@ MonoBehaviour:
   range: 1
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &1774911879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59852,6 +59944,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Melee
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1001 &1787354218
 Prefab:
   m_ObjectHideFlags: 0
@@ -60815,6 +60909,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 1237331688386460, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114490669243090496, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
     - {fileID: 33834679702898442, guid: a7fe86e982b58974bac76b67285a9cbc, type: 2}
@@ -61274,6 +61372,10 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 1079875970156882, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33360492614339582, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
     - {fileID: 114037801118518270, guid: a7efefb61cad02046a347a24ad1d277c, type: 2}
@@ -61521,6 +61623,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Armour
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &1833250298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61583,6 +61687,8 @@ MonoBehaviour:
   range: 1
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!114 &1834355940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65170,6 +65276,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Melee
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1 &1915904979
 GameObject:
   m_ObjectHideFlags: 0
@@ -66440,6 +66548,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Melee
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!4 &1946766262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525129739493094, guid: a7fe86e982b58974bac76b67285a9cbc,
@@ -69757,6 +69867,8 @@ MonoBehaviour:
   range: 1
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1 &2058128120
 GameObject:
   m_ObjectHideFlags: 0
@@ -70142,6 +70254,8 @@ MonoBehaviour:
   range: 1
   health: 10
   type: NoType
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1001 &2072982565
 Prefab:
   m_ObjectHideFlags: 0
@@ -70966,6 +71080,8 @@ MonoBehaviour:
   range: 2
   health: 10
   type: Armour
+  tileBelow: {fileID: 0}
+  tileBelowClicked: {fileID: 0}
 --- !u!1001 &2086245010
 Prefab:
   m_ObjectHideFlags: 0
@@ -72164,6 +72280,10 @@ Prefab:
         type: 2}
       propertyPath: range
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827954142730038, guid: 7d16703215c1b09418149f1bede75329, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33339952701782790, guid: 7d16703215c1b09418149f1bede75329, type: 2}
