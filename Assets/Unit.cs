@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        GetTile();
 	}
 	
 	// Update is called once per frame

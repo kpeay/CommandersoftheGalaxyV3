@@ -87,9 +87,9 @@ public class NPCMove : TacticsMove
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
 
         GameObject nearest = null;
-        GameObject removeThis = null;
-        GameObject smallestHealthObj = null;
-        float distance = Mathf.Infinity;
+        //GameObject removeThis = null;
+        //GameObject smallestHealthObj = null;
+        //float distance = Mathf.Infinity;
         int smallestHealth = 1000;
         int smallestDefense = 1000;
         int myHealth = this.GetComponent<Unit>().GetHealth();
@@ -730,7 +730,8 @@ public class NPCMove : TacticsMove
     {
         if(nearestPlayer == null)
         {
-            TurnManager.EndTurn();
+            Debug.Log("NearestPlayer = null");
+            //TurnManager.EndTurn();
         }
         float distance = Mathf.Infinity;
         // Find the closest selectable tile to nearest player
@@ -807,6 +808,7 @@ public class NPCMove : TacticsMove
 
     void NPCAttacksPlayer(GameObject target)
     {
+        animateAttack = true;
 
         PlayerCombat pc = new PlayerCombat();
 

@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour
     public bool target = false;
     public bool selectable = false;
     public string unitTag = "null";
-    public GameObject unitObject;
+    public GameObject unitObject = null;
 
     int attack;
     int defense;
@@ -28,7 +28,7 @@ public class Tile : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-        
+        GetUnitObject();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +36,20 @@ public class Tile : MonoBehaviour
     {
         //Get information above tile
         unitTag = GetUnit();
+        if (unitTag != "null") {
+            if (unitObject.GetComponent<Unit>().tileBelow != this.GetComponent<Tile>())
+            {
+                //debug. check if tiles are correctly stored if not, notify console and try to set it correctly
+                Debug.Log("**************************************************************************************************************************");
+                Debug.Log("TILE and OBJECT were NOT stored correctly! Current Unit.tileBelow on " + unitObject + " is: " + unitObject.GetComponent<Unit>().tileBelow);
+
+                unitObject.GetComponent<Unit>().tileBelow = this.GetComponent<Tile>();
+
+                Debug.Log("TILE and OBJECT were NOT stored correctly! Now current Unit.tileBelow on " + unitObject + " is: " + unitObject.GetComponent<Unit>().tileBelow);
+                Debug.Log("This TILE is: " + this.GetComponent<Tile>());
+                Debug.Log("**************************************************************************************************************************");
+            }
+        }
 
 	    if (current)
         {

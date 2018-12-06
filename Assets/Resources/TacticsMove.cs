@@ -240,7 +240,8 @@ public class TacticsMove : MonoBehaviour
         Debug.Log("Tile in MoveToTile():" + tile);
         if (tile == null)
         {
-            TurnManager.EndTurn(); //tee hee
+            Debug.Log("MoveToTile().tile is Null ****");
+            //TurnManager.EndTurn(); //tee hee
         }
         else
         {
