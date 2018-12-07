@@ -105,8 +105,9 @@ public class Unit : MonoBehaviour {
     {
         //bool takingDamage = true;
         //Damage dam = new Damage();
-       // this.GetComponent<Damage>().SetDamage(dmg);
+        // this.GetComponent<Damage>().SetDamage(dmg);
         //this.GetComponent<Damage>().ChangeDamage(takingDamage);
+        this.GetComponent<HealthBarController>().SetCurrentHealth(dmg);
         health = health - dmg;
 
         //if health is less than 1 the unit is killed

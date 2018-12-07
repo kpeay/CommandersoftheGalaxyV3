@@ -107,21 +107,57 @@ public class PlayerMove : TacticsMove {
             StartCoroutine(WaitTime(0.3f));
             skipUnit = true;
         }
-        else if (Input.GetMouseButtonUp(1))
+        else if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit))
             {
+                /*
                 if(hit.collider.tag == "Player")
                 {
                     //display player unit's script
+                    
                 }
                 else if(hit.collider.tag == "NPC")
                 {
                     //display NPC unit's script
                 }
+                */
+                GameObject unit = hit.collider.gameObject;
+
+                if (hit.collider.tag == "Player" || hit.collider.tag == "NPC")
+                {
+                    if (unit.transform.Find("HealthBarCanvas"))
+                    {
+                        GameObject canvasObject = unit.transform.Find("HealthBarCanvass").gameObject;
+                        canvasObject.SetActive(true);
+                    }
+                    
+                }
+                
+            }
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject unit = hit.collider.gameObject;
+
+                if (hit.collider.tag == "Player" || hit.collider.tag == "NPC")
+                {
+                    if (unit.transform.Find("HealthBarCanvas"))
+                    {
+                        GameObject canvasObject = unit.transform.Find("HealthBarCanvass").gameObject;
+                        canvasObject.SetActive(false);
+                    }
+
+                }
+
             }
         }
         else if (Input.GetMouseButtonUp(0))
