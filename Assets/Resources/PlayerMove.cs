@@ -121,7 +121,7 @@ public class PlayerMove : TacticsMove {
                 else if(hit.collider.tag == "NPC")
                 {
                     //display NPC unit's script
-                }
+                } 
             }
         }
         else if (Input.GetMouseButtonUp(0))
