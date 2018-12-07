@@ -63,6 +63,10 @@ public class Tile : MonoBehaviour
         {
             GetComponent<Renderer>().material.color = Color.green;
         }
+        else if (!walkable)
+        {
+            GetComponent<Renderer>().material.color = Color.red;
+        }
         else
         {
             GetComponent<Renderer>().material.color = Color.white;

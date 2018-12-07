@@ -128,6 +128,7 @@ public class NPCMove : TacticsMove
                 
             }
 
+            Debug.Log("Number of Players within NPC total range: " + posTarget.Count);
             //if there is at least one enemy within the potential range
             if (posTarget.Count != 0)
             {
@@ -690,6 +691,7 @@ public class NPCMove : TacticsMove
             }
 
         }
+
         if (unitOutOfRange)
         {
             //debug. determine if unitOutofRange is true
@@ -751,6 +753,14 @@ public class NPCMove : TacticsMove
     void FindInRangeTargetTile(GameObject nearestPlayer)
     {
         float distance = Mathf.Infinity;
+        float dist = Vector3.Distance(transform.position, nearestPlayer.transform.position);
+
+        if (dist > this.GetComponent<Unit>().GetMove())
+        {   // If distance to target player is greater than move distance amount, than
+            // find the movable NCP target tile using FindOffRangeTargetTile method
+            FindOffRangeTargetTile(nearestPlayer);
+            return;
+        }
 
         //debug. display what is being passed to GetTargetTile
         Debug.Log("GetTargetTile(" + nearestPlayer + ")");
@@ -808,6 +818,7 @@ public class NPCMove : TacticsMove
 
     void NPCAttacksPlayer(GameObject playerUnit)
     {
+        if (playerUnit == null) return;
         animateAttack = true;
 
         PlayerCombat pc = new PlayerCombat();

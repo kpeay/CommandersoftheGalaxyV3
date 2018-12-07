@@ -21,6 +21,7 @@ public class TurnManager : MonoBehaviour
 	
         if (turnTeam.Count == 0)
         {
+            Debug.Log("All TEAM members COMPLETED their turn.");
             InitTeamTurnQueue();
         }
 	}
@@ -28,7 +29,7 @@ public class TurnManager : MonoBehaviour
     static void InitTeamTurnQueue()
     {
         List<TacticsMove> teamList = units[turnKey.Peek()];
-
+        Debug.Log("New Team members QUEUED for turn...");
         List<TacticsMove> tempList = new List<TacticsMove>(teamList);
         foreach (TacticsMove unit in tempList)
         {
@@ -43,6 +44,7 @@ public class TurnManager : MonoBehaviour
         if (turnTeam.Count > 0)
         {
             turnTeam.Peek().BeginTurn();
+            Debug.Log("Start of TURN given to unit " + turnTeam.Peek().name);
         }
     }
 
@@ -50,8 +52,10 @@ public class TurnManager : MonoBehaviour
     {
         
         TacticsMove unit = turnTeam.Dequeue();
+        Debug.Log("End of TURN declared by unit " + unit.name);
         unit.EndTurn();
 
+        Debug.Log("Number of team units waiting for TURN " + turnTeam.Count);
         if (turnTeam.Count > 0)
         {
             StartTurn();
@@ -85,29 +89,33 @@ public class TurnManager : MonoBehaviour
         }
 
         list.Add(unit);
+        Debug.Log("Unit " + unit.name + " added to team " + unit.tag);
     }
 
     public static void RemoveUnit(GameObject unit)
     {
         string teamTag = unit.tag;
-        Debug.Log("***RemoveUnit Team " + teamTag + " Unit " + unit.name);
+        Debug.Log("***RemoveUnit entered for Team " + teamTag + " Unit " + unit.name);
 
         List<TacticsMove> teamList = units[teamTag];
+        /*
         Debug.Log("***Team " + teamTag + " Members BEFORE removing unit ");
         foreach (TacticsMove mem in teamList)
         {
             Debug.Log("***Team " + teamTag + " Unit " + mem.name);
         }
+        */
 
         TacticsMove abc = unit.GetComponentInParent<TacticsMove>();
         teamList.Remove(abc);
         units[teamTag] = teamList;
+        /*
         Debug.Log("***Team " + teamTag + " Members AFTER removing unit ");
         foreach (TacticsMove mem in teamList)
         {
             Debug.Log("***Team " + teamTag + " Unit " + mem.name);
         }
-
+        */
 
         if (teamList.Count < 1)
         {

@@ -179,7 +179,9 @@ public class PlayerMove : TacticsMove {
         //PlayerCombat.SetStats(soldier.Unit.GetAttack(), soldier.Unit.GetDefense, target.Unit.GetAttack(), target.Unit.GetDefense); FIX LATER*****
         PlayerCombat pc = new PlayerCombat();
         //pc.SetStats(5, 5, 5, 5);
-        
+
+        if (aiUnit == null) return; // When enemy is destroyed
+
         int dmg = pc.AttackPhase(true, this.GetComponent<Unit>().GetAttack(), this.GetComponent<Unit>().GetDefense(), aiUnit.GetComponent<Unit>().GetAttack(), aiUnit.GetComponent<Unit>().GetDefense());
         aiUnit.GetComponent<Unit>().TakeDmg(dmg);
         Debug.Log("Player hits for: " + dmg);

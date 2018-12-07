@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour {
+public class PlayerCombat {
 
     int playerAtk;
     int playerDef;
