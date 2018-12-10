@@ -9,7 +9,10 @@ public class NPCAnimController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        npcAnim = this.GetComponent<Animator>();
+        npcAnim = this.gameObject.GetComponent<Animator>();
+        Debug.Log(npcAnim);
+        Debug.Log(this.gameObject);
+        Debug.Log(" ");
     }
 
     // Update is called once per frame
@@ -19,20 +22,24 @@ public class NPCAnimController : MonoBehaviour {
         if (transform.parent.gameObject.GetComponent<NPCMove>().animateMove)
         {
             npcAnim.SetBool("Running", true);
+            Debug.Log(transform.parent.gameObject.GetComponent<NPCMove>().animateMove);
         }
-        else
+
+        if (!transform.parent.gameObject.GetComponent<NPCMove>().animateMove)
         {
             npcAnim.SetBool("Running", false);
+            //Debug.Log(transform.parent.gameObject.GetComponent<NPCMove>().animateMove);
         }
 
         if (transform.parent.gameObject.GetComponent<NPCMove>().animateAttack)
         {
             npcAnim.SetBool("Attacking", true);
+            Debug.Log(transform.gameObject.GetComponent<NPCMove>().animateAttack);
         }
         else
         {
             npcAnim.SetBool("Attacking", false);
+            //Debug.Log(transform.parent.gameObject.GetComponent<NPCMove>().animateAttack);
         }
-
     }
 }

@@ -191,7 +191,7 @@ public class PlayerMove : TacticsMove {
 
     IEnumerator WaitTime(float sec)
     {
-        print(Time.time);
+        //print(Time.time);
         yield return new WaitForSeconds(sec); //This Command doesn't get activated; why not?
                                               // Time.timeScale = 0;
         animateAttack = false;

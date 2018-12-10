@@ -51,9 +51,9 @@ public class TacticsMove : MonoBehaviour
     // This will be the starting point for path finding.
     public void GetCurrentTile()
     {
-        Debug.Log("Game Object: " + gameObject);
+       // Debug.Log("Game Object: " + gameObject);
         currentTile = GetTargetTile(gameObject);
-        Debug.Log("Current Tile:" + currentTile);
+        //Debug.Log("Current Tile:" + currentTile);
 
     }
 
@@ -63,15 +63,15 @@ public class TacticsMove : MonoBehaviour
         RaycastHit hit;
         Tile tile = null;
 
-        Debug.Log("transform.position:" + target.transform.position);
-        Debug.DrawRay(transform.position, -Vector3.up, Color.magenta);
+        //Debug.Log("transform.position:" + target.transform.position);
+        //Debug.DrawRay(transform.position, -Vector3.up, Color.magenta);
         if (Physics.Raycast(target.transform.position, -Vector3.up, out hit, 1000))
         {
-            Debug.Log("Raycast Hit");
+           // Debug.Log("Raycast Hit");
 
          tile = hit.collider.GetComponent<Tile>();
         }
-        Debug.Log("GetTargetTile() return:" + tile);
+        //Debug.Log("GetTargetTile() return:" + tile);
             return tile;
     }
 
@@ -158,7 +158,7 @@ public class TacticsMove : MonoBehaviour
     public void MoveToTile(Tile tile)
     {
         path.Clear();
-        Debug.Log("Tile in MoveToTile():" + tile);
+        //Debug.Log("Tile in MoveToTile():" + tile);
         if (tile == null)
         {
             TurnManager.EndTurn(); //tee hee
@@ -179,7 +179,7 @@ public class TacticsMove : MonoBehaviour
 
     public void MoveToSelectableNeighborTile(Tile tile, float range, GameObject unit)
     {
-        Debug.Log("Range is: " + range);
+       // Debug.Log("Range is: " + range);
         //on the case that range is greater than 1
         if (range > 1)
         {
@@ -206,7 +206,7 @@ public class TacticsMove : MonoBehaviour
                     tileInRange.Add(t);
                     tileQueue.Enqueue(t);
                 }
-                Debug.Log("Times searched through tiles: " + (i + 1));
+               // Debug.Log("Times searched through tiles: " + (i + 1));
             }
 
 
@@ -222,7 +222,7 @@ public class TacticsMove : MonoBehaviour
                         selectableT.Add(target);
                         if (unit.tag == "NPC")
                         {
-                            Debug.Log("unit.Tag = 'NPC' Target: " + target);
+                            //Debug.Log("unit.Tag = 'NPC' Target: " + target);
                             MoveToTile(target);
                         }
                        // MoveToTile(target);
@@ -242,7 +242,7 @@ public class TacticsMove : MonoBehaviour
                     destination = t;
                 }
             }
-            Debug.Log("Destination:" + destination);
+            //Debug.Log("Destination:" + destination);
             //move to tile. should be the furthest possible tile away from the enemy while still being in range
             MoveToTile(destination); 
 
@@ -257,7 +257,7 @@ public class TacticsMove : MonoBehaviour
                 {
                     if (t.selectable)
                     {
-                        Debug.Log("t:" + t);
+                        //Debug.Log("t:" + t);
                         MoveToTile(t);
                         return;
                     }
@@ -338,7 +338,7 @@ public class TacticsMove : MonoBehaviour
             if (willAttackAfterMove)    // Will we attack enemy
             {
                 if (objectRef.tag == "Player")
-                    objectRef.GetComponent<PlayerMove>().animateMove = false;
+                    //objectRef.GetComponent<PlayerMove>().animateMove = false;
                 if (objectRef.tag == "NPC")
                     //objectRef.GetComponent<NPCMove>().animateMove = false;
                 // Set switch to start attack
@@ -583,7 +583,7 @@ public class TacticsMove : MonoBehaviour
         }
 
         //todo - what do you do if there is no path to the target tile?
-        Debug.Log("Path not found");
+        //Debug.Log("Path not found");
 
     }
 

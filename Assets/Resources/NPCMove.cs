@@ -25,13 +25,14 @@ public class NPCMove : TacticsMove
 	// Update is called once per frame
 	void Update ()
     {
+
         if(NPCMoving == false)
         {
-            this.animateMove = false;
+            animateMove = false;
         }
         else
         {
-            animateMove = true;
+           // animateMove = true;
         }
 
         Debug.DrawRay(transform.position, transform.forward);
@@ -56,7 +57,7 @@ public class NPCMove : TacticsMove
 
         if (moving)
         {   // Continue moving to target tile
-            this.animateMove = true;
+            animateMove = true;
             Move(this.gameObject);
             NPCMoving = true;
             PlayerMove.playerMoving = false;
@@ -89,33 +90,33 @@ public class NPCMove : TacticsMove
         // Simplest AI. Look for nearest player unit. Therefore, 
         // distance will be used to find an attackable player
         GameObject nearest = null;
-        GameObject removeThis = null;
+       // GameObject removeThis = null;
         GameObject smallestHealthObj = null;
-        float distance = Mathf.Infinity;
+        //float distance = Mathf.Infinity;
         int smallestHealth = 1000;
         int smallestDefense = 1000;
         int myHealth = this.GetComponent<Unit>().GetHealth();
-        Debug.Log("My health:" + myHealth);
+       // Debug.Log("My health:" + myHealth);
         float myRange = this.GetComponent<Unit>().GetRange();
-        Debug.Log("My range:" + myRange);
-        int highestHealth = 0;
+        //Debug.Log("My range:" + myRange);
+        //int highestHealth = 0;
 
         List<GameObject> posTarget = new List<GameObject>();
         List<GameObject> allies = new List<GameObject>(); //This the list of the NPCs friends
 
         if (myHealth > 3)
         {
-            Debug.Log(this.gameObject + " Health is greater than 3...");
+            //Debug.Log(this.gameObject + " Health is greater than 3...");
             float smallestDistance = Mathf.Infinity;
             List<GameObject> tempList = new List<GameObject>(targets);
             foreach (GameObject obj in tempList)
             {
                 float d = Vector3.Distance(transform.position, obj.transform.position);
-                Debug.Log("Distance between " + obj + " and " + this.gameObject);
+               // Debug.Log("Distance between " + obj + " and " + this.gameObject);
                 int objHealth = obj.GetComponent<Unit>().GetHealth();
-                Debug.Log("Object's Health:" + objHealth);
+               // Debug.Log("Object's Health:" + objHealth);
                 int objDefense = obj.GetComponent<Unit>().GetDefense();
-                Debug.Log("Object's Defense:" + objDefense);
+              //  Debug.Log("Object's Defense:" + objDefense);
                 
 
                 if (d <= this.GetComponent<Unit>().range + this.GetComponent<Unit>().move)
@@ -150,7 +151,7 @@ public class NPCMove : TacticsMove
                             posTarget.Remove(i); //was posTarget
                         }
                     }
-                    Debug.Log("(Health)Number of elements in the posTarget: " + posTarget.Count);
+                    //Debug.Log("(Health)Number of elements in the posTarget: " + posTarget.Count);
                     tempList = new List<GameObject>(posTarget);
                     foreach (GameObject i in tempList)
                     {
@@ -163,7 +164,7 @@ public class NPCMove : TacticsMove
                             posTarget.Remove(i);
                         }
                     }
-                    Debug.Log("(Def)Number of elements in the posTarget: " + posTarget.Count);
+                   // Debug.Log("(Def)Number of elements in the posTarget: " + posTarget.Count);
                     tempList = new List<GameObject>(posTarget);
                     foreach (GameObject i in tempList)
                     {
@@ -177,19 +178,19 @@ public class NPCMove : TacticsMove
                             posTarget.Remove(i);
                         }
                     }
-                    Debug.Log("(Dist)Number of elements in the posTarget: " + posTarget.Count);
+                    //Debug.Log("(Dist)Number of elements in the posTarget: " + posTarget.Count);
 
                     if (posTarget.Count > 1)
                     {
                         posTarget.RemoveAt(0);
                     }
-                    Debug.Log("(Remove(0))Number of elements in the posTarget: " + posTarget.Count);
+                   // Debug.Log("(Remove(0))Number of elements in the posTarget: " + posTarget.Count);
 
                 } while (posTarget.Count > 1);
 
                 posTarget.ToArray(); //issue here, all the manipulatin we did was only to tempList which is now a different length
                 nearest = posTarget[0];
-                Debug.Log(nearest + " is Target");
+                //Debug.Log(nearest + " is Target");
             }
             else
             {
@@ -246,18 +247,18 @@ public class NPCMove : TacticsMove
 
                 posTarget.ToArray();
                 nearest = posTarget[0];
-                Debug.Log(nearest + " is Target");
+               // Debug.Log(nearest + " is Target");
             }
             
 
         }//end of if health >3 
         else
         {
-            Debug.Log(this.gameObject + " Health is less than 3...");
+            //Debug.Log(this.gameObject + " Health is less than 3...");
             List<GameObject> tempList = new List<GameObject>(targets);
             if (this.GetComponent<Unit>().type == "Range")
             {
-                Debug.Log(this.gameObject + " Is Range");
+               // Debug.Log(this.gameObject + " Is Range");
                 foreach (GameObject o in tempList)
                 {
                     float d = Vector3.Distance(transform.position, o.transform.position);
@@ -298,11 +299,11 @@ public class NPCMove : TacticsMove
                         }
                         else
                         {
-                            Debug.Log("Didn't Lowest Health in Ranger.Health < 3");
+                           // Debug.Log("Didn't Lowest Health in Ranger.Health < 3");
                         }
 
                     }
-                    Debug.Log(nearest + " is Target");
+                   // Debug.Log(nearest + " is Target");
                 }
                 else
                 {
@@ -365,7 +366,7 @@ public class NPCMove : TacticsMove
                     else
                     {
                         foundEnemy = false; 
-                        Debug.Log("Armour unit health less than 3; No enemy target found");
+                       // Debug.Log("Armour unit health less than 3; No enemy target found");
                         
                     }
                 }
@@ -501,7 +502,7 @@ public class NPCMove : TacticsMove
                         }
                         else
                         {
-                            Debug.Log("Didn't Lowest Health in commander.Health < 6");
+                            //Debug.Log("Didn't Lowest Health in commander.Health < 6");
                         }
                     }
                 }
@@ -557,8 +558,8 @@ public class NPCMove : TacticsMove
         else
         {   // There is a player within my range.
             // Set it as target to attack.
-            playerUnit = smallestHealthObj;
-            target = smallestHealthObj;
+            playerUnit = nearest;
+            target = nearest;
             //Debug.Log("Set Player Tile attackable----");
             willAttackAfterMove = true;
             NPC_WillAttack = true;
